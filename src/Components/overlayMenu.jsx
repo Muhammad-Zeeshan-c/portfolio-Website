@@ -1,0 +1,81 @@
+import { useEffect, useState } from "react";
+import closeIcon from "../assets/close.svg";
+
+function OverlayMenu({ isopen, onclose }) {
+  const [scale, setScale] = useState(0);
+  const [animate, setAnimate] = useState(false);
+
+  // calculating scale to expand circle to cover entire screen
+  useEffect(() => {
+    const updateScale = () => {
+      const diagonal = Math.sqrt(window.innerWidth ** 2 + window.innerHeight ** 2);
+      setScale(diagonal / 40 * 1.5);
+    };
+    updateScale();
+    window.addEventListener("resize", updateScale);
+
+    return () => window.removeEventListener("resize", updateScale);
+  }, []);
+
+  // Animatation to open with delay
+  useEffect(() => {
+    if (isopen) {
+
+      const timeout = setTimeout(() => setAnimate(true), 10);
+      return () => clearTimeout(timeout);
+    } else {
+      setAnimate(false);
+    }
+  }, [isopen]);
+
+  return (
+    <>
+      {isopen && (
+        <div className="fixed inset-0 flex justify-center items-center z-10">
+          
+          {/* Circle covering screen */}
+          <div
+            className={`absolute w-10 h-10 bg-black opacity-95 rounded-full z-0 top-1/2 left-1/2
+            transition-transform duration-2000 ease-cubic-bezier(0.16, 1, 0.3, 1) -translate-x-1/2 -translate-y-1/2`}
+            style={{
+              //Scaling the circle to cover screen
+              transform: `scale(${animate ? scale : 0})`,
+            }}
+          />
+
+          <button
+            className="absolute w-8 h-8 top-8 right-8 cursor-pointer z-10 invert"
+            style={{
+              transition: "opacity 1s ease",
+              transitionDelay: "1.2s",
+              opacity: animate ? 1 : 0
+            }}
+            onClick={onclose}
+          >
+            <img src={closeIcon} alt="Close" className="w-full h-full invert" />
+          </button>
+
+          <div
+            className="relative z-10 flex flex-col justify-center items-center gap-6 text-3xl font-bold text-white"
+            style={{
+              transition: "opacity 1.5s ease-out, transform 1.5s ease-out",
+              transitionDelay: "0.8s",
+              opacity: animate ? 1 : 0,
+              transform: animate ? "translateY(0)" : "translateY(30px)",
+            }}
+          >
+            <a href="#home" onClick={onclose}>Home</a>
+            <a href="#about" onClick={onclose}>About</a>
+            <a href="#skills" onClick={onclose}>Skills</a>
+            <a href="#projects" onClick={onclose}>Projects</a>
+            <a href="#contact" onClick={onclose}>Contact Me</a>
+          </div>
+
+
+        </div>
+      )}
+    </>
+  );
+}
+
+export default OverlayMenu;

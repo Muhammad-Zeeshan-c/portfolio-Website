@@ -16,10 +16,10 @@ function CursorComponent() {
   })
   return (
     <div className='pointer-events-none z-[999] fixed top-0 left-0'
-      style={{transform:`translate(${position.x}px , ${position.y}px )`}}>
+      style={{transform:`translate(${position.x-40}px , ${position.y-40}px )`}}>
       <div className='w-20 h-20 bg-gradient-to-r bg-pink-500 to-blue-500 blur-3xl opacity-70'>
 
-      </div>
+      </div>  
     </div>
   )
 }
