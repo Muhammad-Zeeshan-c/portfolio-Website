@@ -13,11 +13,11 @@ function Navbar() {
             <nav className={` text-white h-16 w-full flex justify-between items-center transition-transform duration-300 ease-in ${visible ? "translate-y-0" : "-translate-y-full"}`}>
                 <div className='h-full w-auto flex justify-center items-center gap-2'>
                     <img src={Logo} alt="Z-Logo" className='h-full w-auto' />
-                    <span className="font-bold text-center w-auto text-3xl font-gravitas hidden sm:block">Zeeshan</span>
+                    <span className="font-bold text-center w-auto text-3xl font-gravitas hidden sm:block">*******</span>
                 </div>
 
-                <button>
-                    <img src={HamburgerMenuIcon} alt="Hamburger Menu" className='h-10 w-10 cursor-pointer outline-none'
+                <button >
+                    <img src={HamburgerMenuIcon} alt="Hamburger Menu" className='h-10 w-10 cursor-pointer outline-none '
                         onClick={() => { setMenuVisible(true) }} />
                 </button>
 
