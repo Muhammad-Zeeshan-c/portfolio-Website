@@ -60,7 +60,7 @@ const ParticlesBackground = () => {
   }), []);
 
   if (init) {
-    return <Particles id="tsparticles" options={options} />;
+    return <Particles id="tsparticles" options={options} className="-z-50"/>;
   }
 
   return null;

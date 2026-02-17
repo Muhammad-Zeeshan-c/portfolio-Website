@@ -3,3 +3,8 @@
 * ,*::before,*::after {
   box-sizing: border-box;
 }
+
+
+@theme {
+  --color-primary: #08c7a4;
+}

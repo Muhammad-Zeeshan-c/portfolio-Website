@@ -3,6 +3,9 @@ import Logo from '../assets/Logo.svg'
 import HamburgerMenuIcon from '../assets/hamburgerMenu.svg'
 import OverlayMenu from './overlayMenu.jsx';
 
+import LinkedinLogo from '../assets/linkedin.svg'
+import GithubLogo from '../assets/github.svg'
+
 function Navbar() {
 
     const [visible, setvisible] = useState(true);
@@ -10,8 +13,9 @@ function Navbar() {
 
     return (
         <>
-            <nav className={` text-white h-16 w-full flex justify-between items-center transition-transform duration-300 ease-in ${visible ? "translate-y-0" : "-translate-y-full"}`}>
-                <div className='h-full w-auto flex justify-center items-center gap-2'>
+            <nav className={` text-white h-16 w-full flex justify-between items-center transition-transform duration-300 ease-in fixed z-10 ${visible ? "translate-y-0" : "-translate-y-full"}`}>
+                <div className='h-full w-auto flex justify-center items-center gap-2'
+                onClick={()=>{console.log("btn clicked")}}>
                     <img src={Logo} alt="Z-Logo" className='h-full w-auto' />
                     <span className="font-bold text-center w-auto text-3xl font-gravitas hidden sm:block">*******</span>
                 </div>
