@@ -44,7 +44,7 @@ export default function TypeWriter() {
 
       <h1 className='flex flex-col gap-2 font-bold'>
         <span className='text-5xl text-primary'>Hello, I'm</span>
-        <span className='text-6xl text-white'>MMMMMMMM MMMM</span>
+        <span className='text-6xl text-white'>Muhammad Zeeshan</span>
       </h1>
 
       <div className='text-5xl font-bold'>
