@@ -4,7 +4,7 @@ import GithubLogo from '../assets/github.svg'
 import Xlogo from '../assets/X.svg'
 
 export default function TypeWriter() {
-  const options = ['Software Engineer', 'Web Developer', 'UI/UX Designer', 'Tech Enthusiast'];
+  const options = ['Software Engineer', 'Web Developer', 'UI/UX Developer', 'Tech Enthusiast'];
   const [index, setIdex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
   const [blink, setBlink] = useState(true);

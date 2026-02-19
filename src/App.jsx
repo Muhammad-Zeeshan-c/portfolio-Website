@@ -1,32 +1,39 @@
+import { useState } from "react"
 import ParticlesBackground from "./Components/CanvasComponent.jsx"
 import CursorComponent from "./Components/CursorComponent.jsx"
 import Home from "./Components/Home.jsx"
 import Navbar from './components/navbar.jsx'
 import GreetingsAnimation from './Components/GreetingsAnimation.jsx'
-import { useState } from "react"
+import About from './Components/About.jsx'
 
 
 
 function App() {
-  const [complete,setcomplete]=useState(true);
+  const [complete,setcomplete]=useState(false);
   
   function onComplete(){
     setcomplete(true);
   }
 
   return (
-    <>
+    <div className="">
       <GreetingsAnimation onComplete={onComplete}/>
-      <ParticlesBackground />
+      
       {
         complete && (
-          <CursorComponent />
+          <>
+            <ParticlesBackground />
+            <CursorComponent />
+            <Navbar/>
+            <Home/>
+            <About/>
+          </>
         )
       }
-      <Navbar/>
-      <Home/>
       
-    </>
+
+      
+    </div>
   )
 }
 

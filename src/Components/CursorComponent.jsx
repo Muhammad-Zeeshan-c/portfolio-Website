@@ -16,7 +16,7 @@ function CursorComponent() {
 
   return (
     <div 
-      className='pointer-events-none z-[999] fixed inset-0 overflow-x-hidden'
+      className='pointer-events-none z-[999] fixed inset-0 overflow-hidden'
     >
       <div 
         className='w-20 h-20 bg-gradient-to-r from-pink-500 to-blue-500 blur-3xl opacity-70'
