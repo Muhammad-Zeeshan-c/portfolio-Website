@@ -7,7 +7,6 @@ export default function TypeWriter() {
   const options = ['Software Engineer', 'Web Developer', 'UI/UX Developer', 'Tech Enthusiast'];
   const [index, setIdex] = useState(0);
   const [subIndex, setSubIndex] = useState(0);
-  const [blink, setBlink] = useState(true);
   const [reverse, setReverse] = useState(false);
 
   useEffect(() => {
@@ -32,7 +31,6 @@ export default function TypeWriter() {
         setReverse(false);
       })
     }
-    setBlink(blink => !blink);
 
   }, [index, subIndex, reverse])
 

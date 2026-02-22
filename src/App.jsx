@@ -5,7 +5,7 @@ import Home from "./Components/Home.jsx"
 import Navbar from './components/navbar.jsx'
 import GreetingsAnimation from './Components/GreetingsAnimation.jsx'
 import About from './Components/About.jsx'
-
+import Skills from "./Components/Skills and Tools.jsx"
 
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
   }
 
   return (
-    <div className="">
+    <div className="h-screen">
       <GreetingsAnimation onComplete={onComplete}/>
       
       {
@@ -27,6 +27,7 @@ function App() {
             <Navbar/>
             <Home/>
             <About/>
+            <Skills/>
           </>
         )
       }
