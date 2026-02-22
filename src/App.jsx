@@ -6,6 +6,7 @@ import Navbar from './components/navbar.jsx'
 import GreetingsAnimation from './Components/GreetingsAnimation.jsx'
 import About from './Components/About.jsx'
 import Skills from "./Components/Skills and Tools.jsx"
+import WorkSection from "./Components/WorkSection.jsx"
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
             <Home/>
             <About/>
             <Skills/>
+            <WorkSection/>
           </>
         )
       }
