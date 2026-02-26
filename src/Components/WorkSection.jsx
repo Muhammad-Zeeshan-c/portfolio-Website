@@ -47,7 +47,7 @@ const defaultProjects = [
 export default function WorkSection({ projects = defaultProjects }) {
   return (
     <section id="work" className="w-full min-h-[680px] bg-black">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-20 py-5">
+      <div className="max-w-6xl mx-auto py-5">
 
         <div className='w-full flex justify-center'>
           <motion.h2 className=" h-12 w-42 text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-blue-500 "
@@ -56,7 +56,7 @@ export default function WorkSection({ projects = defaultProjects }) {
             transition={{ duration: 3 }}>My Work</motion.h2>
         </div>
 
-        <div className=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
           {projects.map((proj, idx) => (
             <motion.a
               key={idx}

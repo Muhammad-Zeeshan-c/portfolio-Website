@@ -7,6 +7,7 @@ import GreetingsAnimation from './Components/GreetingsAnimation.jsx'
 import About from './Components/About.jsx'
 import Skills from "./Components/Skills and Tools.jsx"
 import WorkSection from "./Components/WorkSection.jsx"
+import ContactPage from "./Components/ContactPage.jsx"
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
             <About/>
             <Skills/>
             <WorkSection/>
+            <ContactPage/>
           </>
         )
       }
