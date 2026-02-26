@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, {useState} from 'react';
 import AstraImage from '../assets/Astra.png';
 import { motion } from 'framer-motion'
 
@@ -8,45 +8,60 @@ import { motion } from 'framer-motion'
 const defaultProjects = [
   {
     title: 'Crypto App',
-    description: 'A responsive marketing site built with Vite, React and Tailwind CSS.',
+    description: 'A responsive Crypto Screening site built with Vite, React and Tailwind CSS.',
     image: AstraImage,
     url: 'https://example.com/astra',
   },
   {
     title: 'Pixels',
-    description: 'Describe your next project here. Add links and screenshots as needed.',
+    description: 'A responsive image gallery built with Vite, React and Tailwind CSS. powered by the Unsplash API.',
     image: AstraImage,
     url: '#',
   },
   {
     title: 'Netflix Clone',
-    description: 'Describe your next project here. Add links and screenshots as needed.',
+    description: 'A responsive Netflix clone using vanilla JS.',
     image: AstraImage,
     url: '#',
   },
   {
     title: 'Portfolio website',
-    description: 'Describe your next project here. Add links and screenshots as needed.',
+    description: 'A responsive portfolio website built with React and Tailwind CSS.',
     image: AstraImage,
     url: '#',
   },
   {
     title: 'Amazon Clone',
-    description: 'Describe your next project here. Add links and screenshots as needed.',
+    description: 'Amazon market place Clone built using html, css and javascript.',
     image: AstraImage,
     url: '#',
   },
   {
     title: 'Weather App',
-    description: 'Describe your next project here. Add links and screenshots as needed.',
+    description: 'A responsive weather app built using Tailwind CSS.',
+    image: AstraImage,
+    url: '#',
+  },
+  {
+    title: 'AI resume Analyzer',
+    description: '',
     image: AstraImage,
     url: '#',
   }
 ];
 
 export default function WorkSection({ projects = defaultProjects }) {
+
+  const [visibleCount, setVisibleCount]=useState(3);
+  const visibleProjects = projects.slice(0, visibleCount);
+
+  function handleViewMore (count){
+
+    setVisibleCount(count);
+  }
+
   return (
-    <section id="work" className="w-full min-h-[680px] bg-black">
+    <section id="work" className="w-full bg-black py-2">
       <div className="max-w-6xl mx-auto py-5">
 
         <div className='w-full flex justify-center'>
@@ -57,7 +72,7 @@ export default function WorkSection({ projects = defaultProjects }) {
         </div>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-          {projects.map((proj, idx) => (
+          {visibleProjects.map((proj, idx) => (
             <motion.a
               key={idx}
               href={proj.url}
@@ -88,7 +103,13 @@ export default function WorkSection({ projects = defaultProjects }) {
           ))}
         </div>
       </div>
-      
+      {
+        visibleCount ==3 ?<button onClick={() => {handleViewMore(projects.length)}} className="mx-auto block bg-primary text-white px-6 py-2 rounded-lg bg-blue-600 cursor-pointer hover:scale-105">
+        View More
+      </button>: <button onClick={() => {handleViewMore(3)}} className="mx-auto block bg-primary text-white px-6 py-2 rounded-lg bg-red-600 cursor-pointer hover:scale-105">
+        View Less
+      </button>
+      }
     </section>
   );
 }
