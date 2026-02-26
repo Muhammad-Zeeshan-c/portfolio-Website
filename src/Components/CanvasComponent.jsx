@@ -16,7 +16,8 @@ const ParticlesBackground = () => {
 
 
   const options = useMemo(() => ({
-    fullScreen: { enable: true, zIndex: -1 }, 
+    fullScreen: { enable: false, zIndex: -1 },
+    
     
     background: {
       color: { value: "#000000" },
@@ -30,7 +31,7 @@ const ParticlesBackground = () => {
         },
       },
       modes: {
-        grab: { distance: 150, links: { opacity: 0.5 } },
+        grab: { distance: 200, links: { opacity: 0.5 } },
       },
     },
     particles: {
@@ -44,12 +45,12 @@ const ParticlesBackground = () => {
       },
       move: {
         enable: true,
-        speed: 1.5,
+        speed: 2,
         direction: "none",
         outModes: { default: "out" },
       },
       number: {
-        value: 100, 
+        value: 200, 
         density: { enable: true, area: 800 },
       },
       opacity: { value: 0.5 },
@@ -60,7 +61,7 @@ const ParticlesBackground = () => {
   }), []);
 
   if (init) {
-    return <Particles id="tsparticles" options={options} className="-z-50"/>;
+    return <Particles id="tsparticles" options={options} className="-z-50 h-full w-full"/>;
   }
 
   return null;

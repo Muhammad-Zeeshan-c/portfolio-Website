@@ -1,5 +1,4 @@
 import { useState } from "react"
-import ParticlesBackground from "./Components/CanvasComponent.jsx"
 import CursorComponent from "./Components/CursorComponent.jsx"
 import Home from "./Components/Home.jsx"
 import Navbar from './components/navbar.jsx'
@@ -8,10 +7,11 @@ import About from './Components/About.jsx'
 import Skills from "./Components/Skills and Tools.jsx"
 import WorkSection from "./Components/WorkSection.jsx"
 import ContactPage from "./Components/ContactPage.jsx"
+import Footer from './Components/Footer.jsx'
 
 
 function App() {
-  const [complete,setcomplete]=useState(false);
+  const [complete,setcomplete]=useState(true);
   
   function onComplete(){
     setcomplete(true);
@@ -19,19 +19,19 @@ function App() {
 
   return (
     <div className="h-screen">
-      <GreetingsAnimation onComplete={onComplete}/>
+      {/* <GreetingsAnimation onComplete={onComplete}/> */}
+      <Home/>
       
       {
         complete && (
           <>
-            <ParticlesBackground />
             <CursorComponent />
             <Navbar/>
-            <Home/>
             <About/>
             <Skills/>
             <WorkSection/>
             <ContactPage/>
+            <Footer/>
           </>
         )
       }

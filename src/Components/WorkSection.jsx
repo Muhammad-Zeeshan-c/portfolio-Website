@@ -50,10 +50,10 @@ export default function WorkSection({ projects = defaultProjects }) {
       <div className="max-w-6xl mx-auto py-5">
 
         <div className='w-full flex justify-center'>
-          <motion.h2 className=" h-12 w-42 text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-blue-500 "
+          <motion.h2 className=" h-12 w-92 text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-blue-500 "
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 3 }}>My Work</motion.h2>
+            transition={{ duration: 3 }}>Latest Projects</motion.h2>
         </div>
 
         <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
@@ -63,8 +63,9 @@ export default function WorkSection({ projects = defaultProjects }) {
               href={proj.url}
               className="h-80 block rounded-lg overflow-hidden shadow-lg hover:shadow-2xl transition-shadow duration-300 bg-white/5 hover:scale-110 hover:border-2 hover:border-primary "
               target="_blank"
-              initial={{ scale:0.5 }}
-              whileInView={{scale:1}}
+              initial={{ scale:0.9, opacity:0 }}
+              whileInView={{scale:1, opacity:1}}
+              viewport={{once:true,margin:'-100px'}}
               transition={{ duration: 0.5 }}
               
             >
