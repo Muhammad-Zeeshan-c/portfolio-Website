@@ -36,23 +36,25 @@ function Skills() {
 
   const repeatedSkills = [...skills, ...skills];
   return (
-    <div className='h-1/2 w-full flex flex-col justify-evenly text-white items-center overflow-hidden bg-black'>
+    <div className='h-1/2 w-full flex flex-col justify-evenly text-white items-center overflow-hidden bg-black
+    px-6 md:px-10'
+    id='skills'>
       <div>
         <motion.span
           className='flex flex-col gap-2 items-center'
           initial={{ opacity: 0, y: -30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}>
-          <h2 className='text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary via-blue-500 to-blue-500'>MY Skills</h2>
-          <span className='text-white font-medium text-xl'>Modern Applications | Modern Technologies</span>
+          <h2 className='text-3xl sm:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary via-blue-500 to-blue-500'>MY Skills</h2>
+          <span className='text-xs text-center text-white font-medium xs:text-lg sm:text-xl'>Modern Applications | Modern Technologies</span>
         </motion.span>
 
       </div>
 
       {/* Skills */}
-      <div className='w-full h-24 flex overflow-hidden'>
+      <div className='w-full h-24 flex overflow-hidden max-w-6xl mx-auto'>
         <motion.div
-          className="flex w-max items-center gap-5 text-6xl text-primary"
+          className="flex w-max items-center gap-5 text-4xl xs:text-5xl sm:text-6xl text-primary"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             ease: "linear",

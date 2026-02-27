@@ -25,7 +25,7 @@
 
         return (
             <div className={`w-full h-full absolute bg-black z-50 flex justify-center items-center rounded-b-lg ${visible? "transition-transform delay-500 ease-out  translate-y-0":"-translate-y-full transition-transform duration-1000 ease-out"}`}>
-                <h1 className="text-9xl text-white font-bold">{greetings[index]}</h1>
+                <h1 className="text-5xl md:text-9xl text-white font-bold">{greetings[index]}</h1>
             </div>
         );
     }

@@ -35,13 +35,13 @@ export default function Footer() {
                 }}>
 
                 <h1
-                    className='font-semibold leading-none text-white text-center select-none'
+                    className='font-semibold text-2xl sm:text-4xl leading-none text-white text-center select-none'
                     style={{
-                        fontSize: 'clamp(3rem, 5vw, 14rem)',
+                        fontSize: 'clamp(1.5rem, 5vw, 14rem)',
                         letterSpacing: '0.02em',
                         lineHeight: 0.9,
                         padding: '0 3vw',
-                        whiteSpace: 'nowrap',
+                        whiteSpace: 'normal',
                         textShadow: '0 2px 18px rgba(0,0,0,0.4)'
                     }}
                 >
@@ -75,9 +75,9 @@ export default function Footer() {
                 </div>
 
                 <div className=' flex flex-col items-center gap-2'>
-                    <span className='text-base text-white italic'>“Success is when preparation meets opportunity.”</span>
+                    <span className='text-sm text-center xs:text-base text-white italic'>“Success is when preparation meets opportunity.”</span>
 
-                    <div className='text-xs text-white'>
+                    <div className='text-xs text-white text-center'>
                         © 2026 Muhammad Zeeshan. All rights reserved.
                     </div>
                 </div>

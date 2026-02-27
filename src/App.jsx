@@ -11,7 +11,7 @@ import Footer from './Components/Footer.jsx'
 
 
 function App() {
-  const [complete,setcomplete]=useState(true);
+  const [complete,setcomplete]=useState(false);
   
   function onComplete(){
     setcomplete(true);
@@ -19,14 +19,15 @@ function App() {
 
   return (
     <div className="h-screen">
-      {/* <GreetingsAnimation onComplete={onComplete}/> */}
-      <Home/>
+      <GreetingsAnimation onComplete={onComplete}/>
+      
       
       {
         complete && (
           <>
-            <CursorComponent />
             <Navbar/>
+            <Home/>
+            <CursorComponent />
             <About/>
             <Skills/>
             <WorkSection/>

@@ -1,5 +1,5 @@
 
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import AstraImage from '../assets/Astra.png';
 import { motion } from 'framer-motion'
 
@@ -51,8 +51,19 @@ const defaultProjects = [
 ];
 
 export default function WorkSection({ projects = defaultProjects }) {
+  
+
+  
 
   const [visibleCount, setVisibleCount]=useState(3);
+
+  useEffect(()=>{
+    if (window.innerWidth >=1024) {
+      setVisibleCount(3);
+    } else {
+      setVisibleCount(4);
+    }
+  }, []);
   const visibleProjects = projects.slice(0, visibleCount);
 
   function handleViewMore (count){
@@ -61,17 +72,17 @@ export default function WorkSection({ projects = defaultProjects }) {
   }
 
   return (
-    <section id="work" className="w-full bg-black py-2">
-      <div className="max-w-6xl mx-auto py-5">
+    <section id="projects" className="w-full bg-black py-2">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 ">
 
         <div className='w-full flex justify-center'>
-          <motion.h2 className=" h-12 w-92 text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-blue-500 to-blue-500 "
+          <motion.h2 className=" h-12 w-92 text-3xl sm:text-4xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary to-blue-500 "
             initial={{ opacity: 0, y: -30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 3 }}>Latest Projects</motion.h2>
         </div>
 
-        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div className="w-full grid grid-cols-1 xs:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {visibleProjects.map((proj, idx) => (
             <motion.a
               key={idx}
@@ -104,9 +115,9 @@ export default function WorkSection({ projects = defaultProjects }) {
         </div>
       </div>
       {
-        visibleCount ==3 ?<button onClick={() => {handleViewMore(projects.length)}} className="mx-auto block bg-primary text-white px-6 py-2 rounded-lg bg-blue-600 cursor-pointer hover:scale-105">
+        visibleCount <=4 ?<button onClick={() => {handleViewMore(projects.length)}} className="mx-auto block bg-primary text-white mt-4 px-6 py-2 rounded-lg bg-blue-600 cursor-pointer hover:scale-105">
         View More
-      </button>: <button onClick={() => {handleViewMore(3)}} className="mx-auto block bg-primary text-white px-6 py-2 rounded-lg bg-red-600 cursor-pointer hover:scale-105">
+      </button>: <button onClick={() => {handleViewMore(3)}} className="mx-auto block bg-primary text-white px-6 py-2 rounded-lg mt-4 bg-red-600 cursor-pointer hover:scale-105">
         View Less
       </button>
       }

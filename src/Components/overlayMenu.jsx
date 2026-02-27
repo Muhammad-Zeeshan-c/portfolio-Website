@@ -31,7 +31,7 @@ function OverlayMenu({ isopen, onclose }) {
   return (
     <>
       {isopen && (
-        <div className="fixed inset-0 flex justify-center items-center z-10">
+        <div className="fixed inset-0 flex justify-center items-center z-[9999]">
           
           {/* Circle covering screen */}
           <div
@@ -43,8 +43,9 @@ function OverlayMenu({ isopen, onclose }) {
             }}
           />
 
+          {/* Close menu */}
           <button
-            className="absolute w-8 h-8 top-8 right-8 cursor-pointer z-10 invert"
+            className="absolute top-20 right-12 w-8 h-8 cursor-pointer z-10 invert"
             style={{
               transition: "opacity 1s ease",
               transitionDelay: "1.2s",
@@ -64,11 +65,11 @@ function OverlayMenu({ isopen, onclose }) {
               transform: animate ? "translateY(0)" : "translateY(30px)",
             }}
           >
-            <a href="#home" onClick={onclose}>Home</a>
-            <a href="#about" onClick={onclose}>About</a>
-            <a href="#skills" onClick={onclose}>Skills</a>
-            <a href="#projects" onClick={onclose}>Projects</a>
-            <a href="#contact" onClick={onclose}>Contact Me</a>
+            <a href="#home" >Home</a>
+            <a href="#about" >About</a>
+            <a href="#skills" >Skills</a>
+            <a href="#projects" >Projects</a>
+            <a href="#contact" >Contact Me</a>
           </div>
 
 

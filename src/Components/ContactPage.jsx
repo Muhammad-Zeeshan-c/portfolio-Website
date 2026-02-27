@@ -82,23 +82,24 @@ export default function ContactPage() {
     }
 
     return (
-        <div className="relative w-full h-[750px] bg-black overflow-x-hidden">
+        <div className="relative w-full min-h-[750px] h-screen bg-black overflow-hidden px-6 md:px-10"
+        id='contact'>
 
             <div className='w-full h-full absolute inset-0 z-0'>
                 <StarDust/>
             </div>
             
             {/* Contact page main div*/}
-            <motion.div className="relative z-10 w-full mx-auto max-w-6xl h-full flex justify-end
-            rounded-lg pt-20"
-            initial={{ opacity: 0,x:-400}}
+            <motion.div className="relative z-5 w-full h-full mx-auto max-w-6xl  flex justify-end
+            rounded-lg  pt-20"
+            initial={{ opacity: 0,x:-200}}
             whileInView={{ opacity: 1, x:0}}
             transition={{ duration:1, ease:"easeInOut" }}
             >
                 
-                <form className='w-full h-[95%] flex flex-col items-center justify-evenly border-2 border-gray-500/25 rounded-lg max-w-2xl'>
-                    <h1 className='text-4xl font-bold text-white'>Let's work Together</h1>
-                    <div className='w-10/12 flex flex-col text-xl text-white'>
+                <form className='w-full h-full flex flex-col items-center justify-evenly border-2 border-gray-500/25 rounded-lg max-w-2xl'>
+                    <h1 className='text-2xl sm:text-4xl font-bold text-white'>Let's work Together</h1>
+                    <div className='w-11/12 xs:w-10/12 flex flex-col text-xl text-white'>
                         <label htmlFor="name" className='mb-1'>Name <span className='text-red-500'>*</span></label>
                         <input 
                             type="text" 
@@ -112,7 +113,7 @@ export default function ContactPage() {
                         />
                         {errors.name && <span className='text-red-500 text-xs'>{errors.name}</span>}
                     </div>
-                    <div  className='w-10/12 flex flex-col text-xl text-white'>
+                    <div  className='w-11/12 xs:w-10/12 flex flex-col text-xl text-white'>
                         <label htmlFor="email" className='mb-1'>Email <span className='text-red-500'>*</span></label>
                         <input 
                             type="email" 
@@ -126,7 +127,7 @@ export default function ContactPage() {
                         />
                         {errors.email && <span className='text-red-500 text-sm'>{errors.email}</span>}
                     </div>
-                    <div className='w-10/12 flex flex-col text-xl text-white'>
+                    <div className='w-11/12 xs:w-10/12 flex flex-col text-xl text-white'>
                         <label htmlFor="subject" className='mb-1'>Subject <span className='text-red-500'>*</span></label>
                         <input 
                             type="text" 
@@ -140,7 +141,7 @@ export default function ContactPage() {
                         /> 
                         {errors.subject && <span className='text-red-500 text-xs'>{errors.subject}</span>}
                     </div>
-                    <div className='w-10/12 flex flex-col text-xl text-white'>
+                    <div className='w-11/12 xs:w-10/12 flex flex-col text-xl text-white'>
                         <label htmlFor="Message" className='mb-1' >Message <span className='text-red-500'>*</span></label>
                         <textarea
                             id="Message"
@@ -154,7 +155,7 @@ export default function ContactPage() {
                         {errors.Message && <span className='text-red-500 text-xs'>{errors.Message}</span>}
                     </div>
 
-                    <div className='w-10/12 flex justify-start'>
+                    <div className='w-11/12 xs:w-10/12 flex justify-start'>
                         {status==='1' && <span className='text-blue-500 text-sm'>Sending...</span>}
                         {status==='2' && <span className='text-green-500 text-sm'>Message sent successfully!</span>}
                         {status==='3' && <span className='text-red-500 text-sm'>Failed to send message. Please try again later.</span>}
@@ -162,7 +163,7 @@ export default function ContactPage() {
                     <button
                         type="submit"
                         onClick={handleSubmit}
-                        className='w-10/12 h-11 bg-blue-600 text-white rounded-md mt-4 hover:bg-blue-700 transition-colors'
+                        className='w-11/12 xs:w-10/12 h-11 bg-blue-600 text-white rounded-md mt-4 hover:bg-blue-700 transition-colors'
                     >
                         Send Message
                     </button>
