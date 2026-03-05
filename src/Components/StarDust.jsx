@@ -3,9 +3,9 @@ import React, { useEffect, useRef, useState } from 'react';
 
 
 
-export default function Stardust (){
+export default function Stardust() {
   const canvasRef = useRef(null);
-  const [particleCount] = useState(150); 
+  const [particleCount] = useState(150);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -20,22 +20,22 @@ export default function Stardust (){
       constructor(width, height) {
         this.canvasWidth = width;
         this.canvasHeight = height;
-        
+
 
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        
+
 
         this.vx = (Math.random() - 0.5) * 0.4;
         this.vy = (Math.random() - 0.5) * 0.4;
-        
 
-        
+
+
         this.radius = Math.random() * 3.3 + 0.2;
-        
+
 
         this.opacity = Math.random() * 0.6 + 0.2;
-        
+
 
         this.color = '#ffffff';
       }
@@ -67,10 +67,10 @@ export default function Stardust (){
     }
 
     const init = () => {
+      // 6xl = 72rem = 1152px
+      canvas.width = Math.min(window.innerWidth, 1152);
+      canvas.height = canvas.offsetHeight || window.innerHeight;
 
-        canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      
       particles = [];
       for (let i = 0; i < particleCount; i++) {
         particles.push(new Particle(canvas.width, canvas.height));
@@ -79,13 +79,13 @@ export default function Stardust (){
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
+
 
       particles.forEach((particle) => {
         particle.update();
         particle.draw(ctx);
       });
-      
+
       animationFrameId = requestAnimationFrame(animate);
     };
 
@@ -94,7 +94,7 @@ export default function Stardust (){
     };
 
     window.addEventListener('resize', handleResize);
-    
+
     init();
     animate();
 
@@ -105,14 +105,14 @@ export default function Stardust (){
   }, [particleCount]);
 
   return (
-    <div className="relative w-full h-screen bg-black overflow-hidden flex items-center justify-center">
-      {/* Canvas Layer */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 block w-full h-full"
-      />
-
-      {/* UI Overlay Layer */}
+    <div className="relative w-full h-full bg-transparent overflow-hidden">
+      {/* Canvas Layer - Constrained to 6xl */}
+      <div className="absolute inset-0 max-w-6xl mx-auto overflow-hidden">
+        <canvas
+          ref={canvasRef}
+          className="absolute inset-0 block w-full h-full"
+        />
+      </div>
     </div>
   );
 };

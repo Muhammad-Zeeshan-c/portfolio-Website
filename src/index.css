@@ -1,14 +1,53 @@
 @import 'tailwindcss';
 
-* ,*::before,*::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
 
 @theme {
-  --color-primary: #08c7a4;
+  --color-primary: #00b4d8;
+  --breakpoint-xs: 480px;
 
-  --breakpoint-xs:480px;
+  @keyframes gradient-x {
+
+    0%,
+    100% {
+      background-position: 0% 50%;
+    }
+
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes spin-slow {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  --animate-gradient-x: gradient-x 15s ease infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 12s linear infinite;
 }
 
 html {

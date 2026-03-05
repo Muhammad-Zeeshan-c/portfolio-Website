@@ -18,7 +18,7 @@ function App() {
   }
 
   return (
-    <div className="h-screen">
+    <div className="min-h-screen bg-black">
       <GreetingsAnimation onComplete={onComplete} />
 
 

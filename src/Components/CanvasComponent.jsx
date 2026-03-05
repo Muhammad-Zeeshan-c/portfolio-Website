@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
-import { loadSlim } from "@tsparticles/slim"; 
+import { loadSlim } from "@tsparticles/slim";
 
 const ParticlesBackground = () => {
   const [init, setInit] = useState(false);
@@ -17,17 +17,17 @@ const ParticlesBackground = () => {
 
   const options = useMemo(() => ({
     fullScreen: { enable: false, zIndex: -1 },
-    
-    
+
+
     background: {
-      color: { value: "#000000" },
+      color: { value: "transparent" },
     },
     fpsLimit: 120,
     interactivity: {
       events: {
         onHover: {
           enable: true,
-          mode: "grab", 
+          mode: "grab",
         },
       },
       modes: {
@@ -50,7 +50,7 @@ const ParticlesBackground = () => {
         outModes: { default: "out" },
       },
       number: {
-        value: 200, 
+        value: 200,
         density: { enable: true, area: 800 },
       },
       opacity: { value: 0.5 },
@@ -61,7 +61,7 @@ const ParticlesBackground = () => {
   }), []);
 
   if (init) {
-    return <Particles id="tsparticles" options={options} className="-z-10 h-full w-full"/>;
+    return <Particles id="tsparticles" options={options} className="absolute inset-0 z-0 h-full w-full" />;
   }
 
   return null;
