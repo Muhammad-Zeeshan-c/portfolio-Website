@@ -36,9 +36,8 @@ function Skills() {
 
   const repeatedSkills = [...skills, ...skills];
   return (
-    <div className='h-1/2 w-full flex flex-col justify-evenly text-white items-center overflow-hidden bg-black
-    px-6 md:px-10'
-    id='skills'>
+    <div className='min-h-[400px] max-h-[600px] lg:h-[50vh] flex flex-col justify-evenly text-white items-center overflow-hidden bg-black px-6 md:px-10 py-12'
+      id='skills'>
       <div>
         <motion.span
           className='flex flex-col gap-2 items-center'
