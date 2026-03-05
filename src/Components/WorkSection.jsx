@@ -1,9 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import AstraImage from '../assets/Astra.png';
-import { motion } from 'framer-motion'
-
-
+import { motion } from 'framer-motion';
+import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
 const defaultProjects = [
   {
@@ -126,22 +124,22 @@ export default function WorkSection({ projects = defaultProjects }) {
               </div>
 
               {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 backdrop-blur-sm z-10">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-center gap-4 z-10">
                 <a
                   href={proj.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="px-6 py-2 bg-primary text-black font-bold rounded-full hover:bg-white hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300"
+                  className="flex items-center gap-2 px-6 py-2 bg-primary text-black font-bold rounded-full hover:bg-white hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 shadow-lg"
                 >
-                  Live Demo
+                  Live Demo <FaExternalLinkAlt className="text-sm" />
                 </a>
                 <a
                   href={proj.url} // You can update this to an actual GitHub URL in your data later
                   target="_blank"
                   rel="noreferrer"
-                  className="px-6 py-2 border-2 border-primary text-primary font-bold rounded-full hover:bg-primary hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 delay-75"
+                  className="flex items-center gap-2 px-6 py-2 border-2 border-primary text-primary font-bold rounded-full bg-black/60 hover:bg-primary hover:text-black transition-colors transform translate-y-4 group-hover:translate-y-0 duration-300 delay-75 shadow-lg"
                 >
-                  View Code
+                  <FaGithub className="text-xl" /> Show Code
                 </a>
               </div>
             </motion.div>

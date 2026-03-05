@@ -11,34 +11,34 @@ import Footer from './Components/Footer.jsx'
 
 
 function App() {
-  const [complete,setcomplete]=useState(false);
-  
-  function onComplete(){
+  const [complete, setcomplete] = useState(false);
+
+  function onComplete() {
     setcomplete(true);
   }
 
   return (
     <div className="h-screen">
-      <GreetingsAnimation onComplete={onComplete}/>
-      
-      
+      <GreetingsAnimation onComplete={onComplete} />
+
+
       {
         complete && (
           <>
-            <Navbar/>
-            <Home/>
+            <Navbar />
+            <Home />
             <CursorComponent />
-            <About/>
-            <Skills/>
-            <WorkSection/>
-            <ContactPage/>
-            <Footer/>
+            <About />
+            <Skills />
+            <WorkSection />
+            <ContactPage />
+            <Footer />
           </>
         )
       }
-      
 
-      
+
+
     </div>
   )
 }

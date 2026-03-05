@@ -4,9 +4,20 @@ import AvatorIcon from '../assets/avator.png'
 
 function Home() {
     return (
-        <section className=' w-full min-h-[500px] h-screen relative inset-0'
+        <section className=' w-full min-h-[500px] h-screen relative inset-0 overflow-hidden'
             id="home">
-            <div className="absolute w-full h-full -z-10">
+
+            {/* Glow effect Top Left */}
+            <div className='absolute -top-1/4 -left-1/4 w-1/2 xs:w-1/3 h-1/2 xs:h-1/3 blur-[100px] opacity-40 z-0 pointer-events-none'>
+                <div className='bg-gradient-to-r from-primary to-primary animate-pulse w-full h-full rounded-full'></div>
+            </div>
+
+            {/* Glow effect Bottom Right */}
+            <div className='absolute -bottom-1/4 -right-1/4 w-1/2 xs:w-1/3 h-1/2 xs:h-1/3 blur-[100px] opacity-40 z-0 pointer-events-none'>
+                <div className='bg-gradient-to-r from-primary to-primary animate-pulse w-full h-full rounded-full'></div>
+            </div>
+
+            <div className="absolute w-full h-full -z-10 pointer-events-none">
                 <ParticlesBackground />
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] items-start justify-end w-[90%] mx-auto h-full max-w-6xl'>
