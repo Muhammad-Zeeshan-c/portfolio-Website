@@ -1,10 +1,10 @@
 import { useState } from "react"
 import CursorComponent from "./Components/CursorComponent.jsx"
 import Home from "./Components/Home.jsx"
-import Navbar from './components/Navbar.jsx'
+import Navbar from './Components/Navbar.jsx'
 import GreetingsAnimation from './Components/GreetingsAnimation.jsx'
 import About from './Components/About.jsx'
-import Skills from "./Components/Skills and Tools.jsx"
+import Skills from "./Components/SkillsAndTools.jsx"
 import WorkSection from "./Components/WorkSection.jsx"
 import ContactPage from "./Components/ContactPage.jsx"
 import Footer from './Components/Footer.jsx'

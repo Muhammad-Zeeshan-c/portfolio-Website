@@ -1,20 +1,20 @@
 import React, { useState } from 'react'
 import Logo from '../assets/Logo.svg'
 import HamburgerMenuIcon from '../assets/hamburgerMenu.svg'
-import OverlayMenu from './overlayMenu.jsx';
+import OverlayMenu from './OverlayMenu.jsx';
 
 
 
 function Navbar() {
 
     const [visible, setvisible] = useState(true);
-    const [ menuVisible, setMenuVisible ] = useState(false);
+    const [menuVisible, setMenuVisible] = useState(false);
 
     return (
         <>
             <nav className={` text-white h-16 w-full flex justify-between items-center transition-transform duration-300 ease-in fixed px-4 overflow-hidden z-[99999] ${visible ? "translate-y-0" : "-translate-y-full"}`}>
                 <div className='h-full w-auto flex justify-center items-center gap-2'
-                onClick={()=>{console.log("btn clicked")}}>
+                    onClick={() => { console.log("btn clicked") }}>
                     <img src={Logo} alt="Z-Logo" className='h-full w-auto' />
                     <span className="font-bold text-center text-primary w-auto text-3xl font-gravitas hidden sm:block">Zeeshan</span>
                 </div>
@@ -29,7 +29,7 @@ function Navbar() {
                     <a href="#contact">Reach out</a>
                 </button>
             </nav>
-            <OverlayMenu isopen={menuVisible} onclose={()=>{setMenuVisible(false)}}/>
+            <OverlayMenu isopen={menuVisible} onclose={() => { setMenuVisible(false) }} />
         </>
     )
 }
