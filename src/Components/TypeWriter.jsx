@@ -57,7 +57,7 @@ export default function TypeWriter() {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
-      className="w-full h-full flex flex-col gap-y-6 text-white mx-auto justify-center items-center sm:items-start px-5 md:px-10 overflow-visible"
+      className="w-full h-full flex flex-col gap-y-6 mb-4 text-white mx-auto justify-center items-center sm:items-start px-5 md:px-10 overflow-visible"
     >
       <motion.div variants={itemVariants} className='flex flex-col gap-2 items-center sm:items-start text-center sm:text-start'>
         <h1 className='flex flex-col gap-1'>

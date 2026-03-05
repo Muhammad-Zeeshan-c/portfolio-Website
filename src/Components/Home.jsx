@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 function Home() {
     return (
-        <section className=' w-full min-h-[500px] h-screen relative inset-0 overflow-hidden bg-black'
+        <section className=' w-full min-h-[500px] h-screen relative inset-0 overflow-hidden bg-black gap-y-2'
             id="home">
 
             {/* Glow effect Top Left */}
@@ -27,7 +27,6 @@ function Home() {
                 </div>
 
                 <div className='relative overflow-hidden w-full h-full hidden lg:flex justify-center items-center'>
-                    {/* Premium Avatar Ornament */}
                     <div className="absolute w-[450px] h-[450px] border border-primary/20 rounded-full animate-spin-slow"></div>
                     <div className="absolute w-[400px] h-[400px] border-2 border-dashed border-primary/10 rounded-full animate-spin-slow [animation-direction:reverse]"></div>
                     <div className="absolute w-64 h-64 bg-primary/20 blur-[100px] rounded-full animate-pulse"></div>
@@ -48,7 +47,7 @@ function Home() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2, duration: 1 }}
-                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/30"
+                className="absolute bottom-10 left-1/2 -translate-x-1/2  flex flex-col items-center gap-2 text-white/30"
             >
                 <span className="text-[10px] uppercase tracking-[0.3em] font-bold">Scroll</span>
                 <div className="w-[1px] h-12 bg-gradient-to-b from-primary/50 to-transparent"></div>

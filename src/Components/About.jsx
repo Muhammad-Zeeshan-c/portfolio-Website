@@ -5,18 +5,18 @@ import profilePic from '../assets/Profile pic.png'
 function About() {
     return (
         <section className='w-full h-[1000px]  bg-black relative overflow-hidden pt-4'
-        id='about'
+            id='about'
         >
             <motion.div className='flex flex-col justify-evenly items-center w-full h-full overflow-hidden'
-            initial={{ opacity: 0, x: -200 }} // Starts 100px to the left
-            viewport={{once:true}}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{
-                duration: 1.5,
-                ease: "easeOut",
-                type: "spring",
-                stiffness: 15
-            }}>
+                initial={{ opacity: 0, x: -200 }} // Starts 100px to the left
+                viewport={{ once: true }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{
+                    duration: 1.5,
+                    ease: "easeOut",
+                    type: "spring",
+                    stiffness: 15
+                }}>
                 {/* Glow effect */}
                 <div className='absolute  -left-1/4  w-1/3 h-1/3 blur-3xl opacity-50 z-0'>
                     <div className='bg-gradient-to-r from-primary to to-primary animate-pulse blur-3xl w-full h-full'></div>
@@ -39,7 +39,7 @@ function About() {
                     <div className='flex flex-col items-center sm:items-start gap-2'>
                         <h1 className='text-xl text-primary font-bold xs:text-2xl sm:text-3xl'>Muhammad Zeeshan Khalid</h1>
                         <h1 className='text-base text-white font-bold xs:text-xl'>Web Developer</h1>
-                        <span className=' text-white/50 text-sm text-center xs:text-base sm:text-start md:text-xl'>I develop high-performance web applications with a strong emphasis on clean architecture and intuitive user experience. My core tech stack consists of React, JavaScript, Tailwind CSS, and Next.js. With a background in C++ and Python, I fill the gap between optimized application logic and responsive interfaces.</span>
+                        <span className=' text-white/50 text-sm text-center xs:text-base sm:text-start md:text-xl'>I develop high performance web applications with a strong emphasis on clean architecture and intuitive user experience. My core tech stack consists of React, JavaScript, Tailwind CSS, and Next.js. With a background in C++ and Python, I fill the gap between optimized application logic and responsive interfaces.</span>
 
                         {/* Container containing info  */}
                         <div className='mt-5'>
@@ -75,9 +75,9 @@ function About() {
 
                     <h3 className='font-bold text-white text-2xl '>About me</h3>
 
-                    <p className='text-sm text-white/70 font-thin text-center sm:text-start xs:text-base md:text-xl'>I’m Muhammad Zeeshan, a Computer Science undergraduate and Web Developer — passionate about building fast, scalable web applications using modern technologies like React, Next.js, JavaScript, and Tailwind CSS.
+                    <p className='text-sm text-white/70 font-thin text-center sm:text-start xs:text-base md:text-xl'>I’m Muhammad Zeeshan, a Computer Science undergraduate and Web Developer passionate about building fast, scalable web applications using modern technologies like React, Next.js, JavaScript, and Tailwind CSS.
                         <br />
-                        I enjoy turning ideas into clean, responsive, and user-friendly digital experiences that solve real-world problems</p>
+                        I enjoy turning ideas into clean, responsive, and user friendly digital experiences that solve real-world problems</p>
                 </div>
             </motion.div>
         </section>

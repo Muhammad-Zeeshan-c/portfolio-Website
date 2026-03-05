@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import AstraImage from '../assets/Astra.png';
+import CryptoImage from '../assets/crypto.JPG';
+import PixelsImage from '../assets/pixels.JPG';
+import NetflixImage from '../assets/netflix.JPG';
+import PortfolioImage from '../assets/portfolio.JPG';
+import AmazonImage from '../assets/Amazon.JPG';
+import ConverterImage from '../assets/converter.JPG';
+
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 
@@ -7,51 +14,73 @@ const defaultProjects = [
   {
     title: 'Crypto App',
     description: 'A responsive Crypto Screening site built with Vite, React and Tailwind CSS.',
-    image: AstraImage,
-    url: 'https://example.com/astra',
-    tags: ['React', 'Tailwind'],
+    image: CryptoImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Crypto-Screener.git',
+    demoUrl: '#',
+    tags: ['React', 'TailwindCSS', 'CoinGecko Api'],
+    status: 'complete'
   },
   {
     title: 'Pixels',
     description: 'A responsive image gallery built with Vite, React and Tailwind CSS. powered by the Unsplash API.',
-    image: AstraImage,
-    url: '#',
-    tags: [],
+    image: PixelsImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Pixels.git',
+    demoUrl: 'https://pixels-web.netlify.app/',
+    tags: ['React', 'TailwindCSS', 'Unsplash Api'],
+    status: 'complete'
   },
   {
     title: 'Netflix Clone',
     description: 'A responsive Netflix clone using vanilla JS.',
-    image: AstraImage,
-    url: '#',
-    tags: [],
+    image: NetflixImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Netflix_Clone.git',
+    demoUrl: 'https://app.netlify.com/projects/netfl1x-clone-web/',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'complete'
   },
   {
     title: 'Portfolio website',
     description: 'A responsive portfolio website built with React and Tailwind CSS.',
-    image: AstraImage,
-    url: '#',
-    tags: [],
+    image: PortfolioImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/portfolio-Website.git',
+    demoUrl: 'https://github.com/Muhammad-Zeeshan-c/portfolio-Website.git',
+    tags: ['React', 'TailwindCSS', 'Framer motion'],
+    status: 'complete'
   },
   {
     title: 'Amazon Clone',
     description: 'Amazon market place Clone built using html, css and javascript.',
-    image: AstraImage,
-    url: '#',
-    tags: [],
+    image: AmazonImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Amazon-Clone.git',
+    demoUrl: 'https://amaz8n-clone.netlify.app/',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'complete'
   },
   {
     title: 'Weather App',
     description: 'A responsive weather app built using Tailwind CSS.',
     image: AstraImage,
-    url: '#',
-    tags: [],
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/AccuWeather-App.git',
+    demoUrl: 'https://app.netlify.com/projects/accuweather-app-web/',
+    tags: ['JavaScript', 'Open weather Api'],
+    status: 'complete'
+  },
+  {
+    title: 'Currency Covnerter',
+    description: 'Sleek modern currency converter using public API',
+    image: ConverterImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Currency-Converter',
+    demoUrl: 'https://app.netlify.com/projects/accucurrency-converter/',
+    tags: ['JavaScript', 'Currency Converter API'],
+    status: 'complete'
   },
   {
     title: 'AI resume Analyzer',
-    description: '',
+    description: 'An intelligent platform to analyze and optimize resumes using AI algorithms.',
     image: AstraImage,
-    url: '#',
-    tags: [],
+    gitUrl: '#',
+    tags: ['OpenAI Api', 'Python', 'React', 'Express.js', 'Tailwind'],
+    status: 'pending'
   }
 ];
 
@@ -95,13 +124,21 @@ export default function WorkSection({ projects = defaultProjects }) {
           {visibleProjects.map((proj, idx) => (
             <motion.div
               key={idx}
-              className="relative h-[26rem] flex flex-col rounded-2xl overflow-hidden transition-all duration-500 bg-[#0d0d0d] group border border-white/5 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,180,216,0.2)]"
+              className={`relative h-[26rem] flex flex-col rounded-2xl overflow-hidden transition-all duration-500 bg-[#0d0d0d] group border border-white/5 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,180,216,0.2)] ${proj.status === 'pending' ? 'hover:scale-[1.03]' : ''}`}
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
             >
-              {/* Image Container */}
+              {/* Ribbon for Pending projects  */}
+              {proj.status === 'pending' && (
+                <div className="absolute top-0 right-0 z-40 overflow-hidden w-32 h-32 pointer-events-none">
+                  <div className="absolute top-6 -right-8 w-[170px] py-1 bg-primary text-black text-[10px] font-black uppercase tracking-widest text-center rotate-45 shadow-lg border-y border-black/10">
+                    In Progress
+                  </div>
+                </div>
+              )}
+              {/* Image Container for project*/}
               <div className="w-full h-52 bg-[#121212] overflow-hidden shrink-0 relative">
                 <img
                   src={proj.image}
@@ -120,7 +157,7 @@ export default function WorkSection({ projects = defaultProjects }) {
                   {proj.description || "A high-performance digital solution crafted with modern precision and aesthetic excellence."}
                 </p>
 
-                {/* Tech Tags */}
+                {/* Tech Tags of project if i add */}
                 <div className="mt-6 flex flex-wrap gap-2">
                   {(proj.tags && proj.tags.length > 0 ? proj.tags : ['Modern Tech', 'Web App']).map((tag, tIdx) => (
                     <span key={tIdx} className="flex items-center gap-1.5 px-3 py-1 bg-white/5 border border-white/10 text-[10px] font-medium text-white/80 rounded-full tracking-wider uppercase">
@@ -131,25 +168,27 @@ export default function WorkSection({ projects = defaultProjects }) {
                 </div>
               </div>
 
-              {/* Hover Overlay - Sharp Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/90 opacity-0 group-hover:opacity-100 transition-all duration-400 flex flex-col items-center justify-center gap-4 z-30">
-                <a
-                  href={proj.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 px-8 py-3 bg-primary text-black font-black uppercase tracking-widest text-xs rounded-lg hover:bg-white transition-all transform translate-y-8 group-hover:translate-y-0 duration-500 shadow-[0_10px_20px_rgba(0,180,216,0.3)]"
-                >
-                  Live Demo <FaExternalLinkAlt className="text-xs" />
-                </a>
-                <a
-                  href={proj.url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-lg bg-white/5 backdrop-blur-md hover:bg-primary hover:text-black hover:border-primary transition-all transform translate-y-8 group-hover:translate-y-0 duration-500 delay-100"
-                >
-                  <FaGithub className="text-base" /> Show Code
-                </a>
-              </div>
+              {/* Hover Overlay */}
+              {proj.status === 'complete' && (
+                <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/90 opacity-0 group-hover:opacity-100 transition-all duration-400 flex flex-col items-center justify-center gap-4 z-30">
+                  <a
+                    href={proj.gitUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 px-8 py-3 bg-primary text-black font-black uppercase tracking-widest text-xs rounded-lg hover:bg-white transition-all transform translate-y-8 group-hover:translate-y-0 duration-500 shadow-[0_10px_20px_rgba(0,180,216,0.3)]"
+                  >
+                    Live Demo <FaExternalLinkAlt className="text-xs" />
+                  </a>
+                  <a
+                    href={proj.gitUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 px-8 py-3 border border-white/20 text-white font-black uppercase tracking-widest text-xs rounded-lg bg-white/5 backdrop-blur-md hover:bg-primary hover:text-black hover:border-primary transition-all transform translate-y-8 group-hover:translate-y-0 duration-500 delay-100"
+                  >
+                    <FaGithub className="text-base" /> Show Code
+                  </a>
+                </div>
+              )}
             </motion.div>
           ))}
         </div>

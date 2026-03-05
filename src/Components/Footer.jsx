@@ -7,9 +7,9 @@ import { BsTwitterX } from "react-icons/bs";
 
 export default function Footer() {
     const Icons = [
-        { icon: <TbBrandGithub /> },
-        { icon: <FaLinkedin /> },
-        { icon: <BsTwitterX /> }
+        { icon: <TbBrandGithub />, Link: 'https://github.com/Muhammad-Zeeshan-c' },
+        { icon: <FaLinkedin />, Link: ' https://www.linkedin.com/in/muhammad-zeeshan-khalid-665b3a327/' },
+        { icon: <BsTwitterX />, Link: 'https://X.com/' }
     ]
     const glowVariants = {
         initial: { scale: 1, filter: 'drop-shadow(0 0 0 rgba(0,0,0,0))' },
@@ -62,7 +62,7 @@ export default function Footer() {
                                 className='text-3xl text-white cursor-pointer'
                             >
                                 <a
-                                    href='#'
+                                    href={i.Link}
                                     target='_blank'
                                     rel='noopener noreferrer'
                                     className='text-3xl text-white'

@@ -191,7 +191,7 @@ export default function ContactPage() {
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="text-sm text-white/50 font-semibold uppercase tracking-wider mb-1">Email Details</span>
-                                        <a href="mailto:your.email@example.com" className="text-white hover:text-primary transition-colors">your.email@example.com</a>
+                                        <a href="mailto:m.zeeshanKhalid12@gmail.com" className="text-white hover:text-primary transition-colors">m.zeeshankhalid12@gmail.com</a>
                                     </div>
                                 </div>
 
@@ -201,7 +201,7 @@ export default function ContactPage() {
                                     </div>
                                     <div className="flex flex-col">
                                         <span className="text-sm text-white/50 font-semibold uppercase tracking-wider mb-1">Location</span>
-                                        <span className="text-white leading-relaxed">Lahore, Pakistan<br />Available for global remote work</span>
+                                        <span className="text-white leading-relaxed">Lahore, Pakistan</span>
                                     </div>
                                 </div>
                             </div>
@@ -210,7 +210,7 @@ export default function ContactPage() {
                         <div className="mt-4 pt-6 border-t border-gray-700">
                             <p className="text-sm text-white/60 mb-4">Need a quick response? Drop a message directly via WhatsApp.</p>
                             <a
-                                href="https://wa.me/+923074188045"
+                                href="https://wa.me/+9212345678"
                                 target="_blank"
                                 rel="noreferrer"
                                 className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-[#25D366] text-white font-bold rounded-xl transition-all hover:bg-[#1ebe57] hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(37,211,102,0.2)]"
