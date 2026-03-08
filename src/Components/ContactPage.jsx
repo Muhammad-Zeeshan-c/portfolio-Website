@@ -104,7 +104,7 @@ export default function ContactPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
 
                     {/* Left: Enhanced Contact Form */}
-                    <form className='w-full flex flex-col items-center justify-between border border-gray-500/30 bg-black/40 backdrop-blur-md rounded-2xl p-8 shadow-2xl'>
+                    <form className='w-full flex flex-col items-center justify-between border border-gray-500/30 bg-black/40 backdrop-blur-md rounded-2xl p-4 shadow-2xl'>
                         <div className='w-full flex flex-col text-sm text-white/90 mb-6'>
                             <label htmlFor="name" className='mb-2 font-medium'>Name <span className='text-red-500'>*</span></label>
                             <input
@@ -180,7 +180,7 @@ export default function ContactPage() {
                     </form>
 
                     {/* Right: Direct Contact Info Box */}
-                    <div className="w-full flex flex-col gap-8 bg-black/40 backdrop-blur-md border border-gray-500/30 rounded-2xl p-8 shadow-2xl h-full justify-center">
+                    <div className="w-full flex flex-col gap-8 bg-black/40 backdrop-blur-md border border-gray-500/30 rounded-2xl p-4 shadow-2xl h-full justify-center">
                         <div>
                             <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Direct Contact</h3>
 
@@ -189,7 +189,7 @@ export default function ContactPage() {
                                     <div className="p-3 bg-gray-800/80 text-primary rounded-lg border border-gray-700 shrink-0">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
                                     </div>
-                                    <div className="flex flex-col">
+                                    <div className="flex flex-col truncate">
                                         <span className="text-sm text-white/50 font-semibold uppercase tracking-wider mb-1">Email Details</span>
                                         <a href="mailto:m.zeeshanKhalid12@gmail.com" className="text-white hover:text-primary transition-colors">m.zeeshankhalid12@gmail.com</a>
                                     </div>
