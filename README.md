@@ -1,50 +1,52 @@
-# Zeeshan Khalid | Creative Technologist Portfolio
-
-![Portfolio Banner](https://raw.githubusercontent.com/Muhammad-Zeeshan-c/portfolio-Website/main/src/assets/Banner.png)
+# 🌐 Zeeshan Khalid Portfolio Website
 
 > **"Turning complex logic into fluid digital experiences."**
 
-A high-fidelity, cinematic portfolio website built for **Zeeshan Khalid**, a 4th-semester student at **COMSATS Lahore**. This project is designed as a "digital instrument"—where every scroll is intentional, every animation is weighted, and the user experience is prioritized above all else.
+A high-fidelity, cinematic portfolio website built with **React**, **Tailwind CSS**, and **Framer Motion**. Every scroll, animation, and interaction is designed intentionally to provide a **smooth and engaging user experience**. This project showcases my skills, projects, and creative approach to frontend development.
+
+**Live Demo:** [zeeshanportfolio-website.vercel.app](https://zeeshanportfolio-website.vercel.app/)
 
 ---
 
 ## ✨ Features
 
-- **🎭 Cinematic Animations**: Powered by **Framer Motion** for smooth page transitions and micro-interactions.
-- **🌗 Ambient Theming**: Fully integrated Dark and Light mode toggle with a vibrant, modern palette.
-- **📱 Fluid Responsiveness**: Pixel-perfect layout from mobile devices up to 4K monitors.
-- **🚀 Engineered with React 19**: Leveraging the latest React features and concurrent rendering.
-- **🎨 Tailwind CSS V4**: Utilizing the cutting-edge CSS framework for high-performance styling.
-- **🧭 Intuitive Navigation**: Multi-page structure with `react-router-dom` and smooth scroll implementations.
+- **🎭 Cinematic Animations**: Smooth page transitions and micro-interactions using **Framer Motion**.
+- **🌗 Dark & Light Mode**: Fully integrated theme toggle with a vibrant and modern palette.
+- **📱 Fully Responsive**: Optimized layouts for mobile, tablet, and desktop, up to 4K resolution.
+- **🧭 Intuitive Navigation**: Multi-page routing with smooth scroll behavior.
+- **🎨 Tailwind CSS Styling**: High-performance and clean CSS for a modern UI.
+- **🚀 Built with React**: Leveraging the latest React features for fast and reactive UI.
 
 ---
 
 ## 🛠️ Tech Stack
 
 ### Core
-- **React.js 19** - UI Component Library
-- **Tailwind CSS V4** - Styling Engine
-- **Framer Motion** - Animation Engine
-- **React Router DOM** - Client-side Routing
+- **React.js** - Frontend library for building UI components  
+- **Tailwind CSS** - Utility-first CSS framework for styling  
+- **Framer Motion** - Animation library for React  
 
 ### Tools & Deployment
-- **Vite** - Build Tool
-- **Netlify** - Deployment Pipeline
-- **Git** - Version Control
+- **Vite** - Fast frontend build tool  
+- **Vercel** - Deployment platform for live website  
+- **Git** - Version control  
 
 ---
 
 ## 📂 Project Structure
 
 ```text
-src/
-├── assets/         # Static assets, icons, and media
-├── Components/     # Low-level UI components (Navbar, Footer, Menu)
-├── Pages/          # Main page layouts (Home, About, Projects, Contact)
-├── App.jsx         # Main application logic & routing
-└── main.jsx        # Entry point
+portfolio-website/
+├── src/
+│   ├── assets/       # Static assets, images, icons
+│   ├── Components/   # Navbar, Footer, Buttons, etc.
+│   ├── Pages/        # Home, About, Projects, Contact pages
+│   ├── App.jsx       # Main app logic and routing
+│   └── main.jsx      # React entry point
+├── public/           # Public assets and index.html
+├── package.json
+└── README.md
 ```
-
 ---
 
 ## 🚀 Getting Started
@@ -82,9 +84,6 @@ src/
 
 ---
 
-## 👨‍💻 About the Author
-
-**Zeeshan Khalid** is a passionate computer science student at COMSATS Lahore, specializing in frontend engineering and creative technology. With a focus on high-fidelity user interfaces, he strives to bridge the gap between design and development.
 
 - **LinkedIn**: [Zeeshan Khalid](https://www.linkedin.com/in/muhammad-zeeshan-khalid-392baa297/)
 - **GitHub**: [@Muhammad-Zeeshan-c](https://github.com/Muhammad-Zeeshan-c)
@@ -92,11 +91,6 @@ src/
 
 ---
 
-## 📝 License
-
-Distributed under the MIT License. See `LICENSE` for more information.
-
----
 
 <p align="center">
   Made with ❤️ by Zeeshan
