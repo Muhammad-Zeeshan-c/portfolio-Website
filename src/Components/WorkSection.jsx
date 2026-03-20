@@ -13,64 +13,64 @@ import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 const defaultProjects = [
   {
     title: 'Crypto App',
-    description: 'A responsive Crypto Screening site built with Vite, React and Tailwind CSS.',
+    description: 'A responsive Crypto Screening powered by coinGecko to monitor crypto market in real time.',
     image: CryptoImage,
     gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Crypto-Screener.git',
-    demoUrl: '#',
+    demoUrl: 'https://cryptometric.vercel.app/',
     tags: ['React', 'TailwindCSS', 'CoinGecko Api'],
     status: 'complete'
   },
   {
-    title: 'Pixels',
-    description: 'A responsive image gallery built with Vite, React and Tailwind CSS. powered by the Unsplash API.',
-    image: PixelsImage,
-    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Pixels.git',
-    demoUrl: 'https://pixels-web.netlify.app/',
-    tags: ['React', 'TailwindCSS', 'Unsplash Api'],
-    status: 'complete'
-  },
-  {
-    title: 'Netflix Clone',
-    description: 'A responsive Netflix clone using vanilla JS.',
-    image: NetflixImage,
-    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Netflix_Clone.git',
-    demoUrl: 'https://app.netlify.com/projects/netfl1x-clone-web/',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    status: 'complete'
-  },
-  {
     title: 'Portfolio website',
-    description: 'A responsive portfolio website built with React and Tailwind CSS.',
+    description: 'My portfolio website to showcase my skills and projects.',
     image: PortfolioImage,
     gitUrl: 'https://github.com/Muhammad-Zeeshan-c/portfolio-Website.git',
-    demoUrl: 'https://github.com/Muhammad-Zeeshan-c/portfolio-Website.git',
+    demoUrl: 'https://zeeshanportfolio-website.vercel.app/',
     tags: ['React', 'TailwindCSS', 'Framer motion'],
     status: 'complete'
   },
   {
-    title: 'Amazon Clone',
-    description: 'Amazon market place Clone built using html, css and javascript.',
-    image: AmazonImage,
-    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Amazon-Clone.git',
-    demoUrl: 'https://amaz8n-clone.netlify.app/',
-    tags: ['HTML', 'CSS', 'JavaScript'],
+    title: 'Pixels',
+    description: 'An image explorer website powered by unsplash to explore images in high quality.',
+    image: PixelsImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Pixels.git',
+    demoUrl: 'https://pixels-clone.vercel.app/',
+    tags: ['React', 'TailwindCSS', 'Unsplash Api'],
     status: 'complete'
   },
   {
     title: 'Weather App',
-    description: 'A responsive weather app built using Tailwind CSS.',
+    description: 'A responsive weather powered by open weather api to monitor real time weather conditions.',
     image: AstraImage,
     gitUrl: 'https://github.com/Muhammad-Zeeshan-c/AccuWeather-App.git',
-    demoUrl: 'https://app.netlify.com/projects/accuweather-app-web/',
+    demoUrl: '#',
     tags: ['JavaScript', 'Open weather Api'],
     status: 'complete'
   },
   {
+    title: 'Netflix Clone',
+    description: 'Netflix Clone built using html, css and javascript.',
+    image: NetflixImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Netflix_Clone.git',
+    demoUrl: 'https://netflixpk-clone.vercel.app/',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'complete'
+  },
+  {
+    title: 'Amazon Clone',
+    description: 'Frontend clone of Amazon market place.',
+    image: AmazonImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Amazon-Clone.git',
+    demoUrl: 'https://amazonpk-clone.vercel.app/',
+    tags: ['HTML', 'CSS', 'JavaScript'],
+    status: 'complete'
+  },
+  {
     title: 'Currency Covnerter',
-    description: 'Sleek modern currency converter using public API',
+    description: 'Sleek modern currency converter built using public API to monitor real time currency exchange rates.',
     image: ConverterImage,
     gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Currency-Converter',
-    demoUrl: 'https://app.netlify.com/projects/accucurrency-converter/',
+    demoUrl: 'https://currency-converter-neon-beta.vercel.app/',
     tags: ['JavaScript', 'Currency Converter API'],
     status: 'complete'
   },
@@ -172,7 +172,7 @@ export default function WorkSection({ projects = defaultProjects }) {
               {proj.status === 'complete' && (
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-black/60 to-black/90 opacity-0 group-hover:opacity-100 transition-all duration-400 flex flex-col items-center justify-center gap-4 z-30">
                   <a
-                    href={proj.gitUrl}
+                    href={proj.demoUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="flex items-center gap-2 px-8 py-3 bg-primary text-black font-black uppercase tracking-widest text-xs rounded-lg hover:bg-white transition-all transform translate-y-8 group-hover:translate-y-0 duration-500 shadow-[0_10px_20px_rgba(0,180,216,0.3)]"
