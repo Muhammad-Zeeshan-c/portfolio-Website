@@ -6,6 +6,8 @@ import NetflixImage from '../assets/netflix.JPG';
 import PortfolioImage from '../assets/portfolio.JPG';
 import AmazonImage from '../assets/Amazon.JPG';
 import ConverterImage from '../assets/converter.JPG';
+import JohnyJugnuImage from '../assets/JohnyJugnuImg.JPG';
+import AlBadrImage from '../assets/AlbadrImg.JPG';
 
 import { motion } from 'framer-motion';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
@@ -36,6 +38,24 @@ const defaultProjects = [
     gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Pixels.git',
     demoUrl: 'https://pixels-clone.vercel.app/',
     tags: ['React', 'TailwindCSS', 'Unsplash Api'],
+    status: 'complete'
+  },
+  {
+    title: 'AL Badr 313 Resturant Website',
+    description: 'A resturant Al Badr 313 website giving royal mughal style vibes, featuring menu,contact form and contact information.',
+    image: AlBadrImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Al-badr-313.git',
+    demoUrl: 'https://albadr313.vercel.app/',
+    tags: ['React', 'Tailwindcss', 'lucide-react'],
+    status: 'complete'
+  },
+  {
+    title: 'Johny Jugnu Resturant Website',
+    description: 'A sleek, moren resturant website for Johny Jugnu Resturant, featuring menu,contact form and contact information.',
+    image: JohnyJugnuImage,
+    gitUrl: 'https://github.com/Muhammad-Zeeshan-c/Resturant.git',
+    demoUrl: 'https://johnyjugnu-resturant.vercel.app/',
+    tags: ['React', 'Tailwindcss', 'lucide-react'],
     status: 'complete'
   },
   {
@@ -124,7 +144,7 @@ export default function WorkSection({ projects = defaultProjects }) {
           {visibleProjects.map((proj, idx) => (
             <motion.div
               key={idx}
-              className={`relative h-[26rem] flex flex-col rounded-2xl overflow-hidden transition-all duration-500 bg-[#0d0d0d] group border border-white/5 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,180,216,0.2)] ${proj.status === 'pending' ? 'hover:scale-[1.03]' : ''}`}
+              className={`relative min-h[26rem] h-[28rem] flex flex-col rounded-2xl overflow-hidden transition-all duration-500 bg-[#0d0d0d] group border border-white/5 hover:border-primary/50 hover:shadow-[0_0_30px_rgba(0,180,216,0.2)] ${proj.status === 'pending' ? 'hover:scale-[1.03]' : ''}`}
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true, margin: '-50px' }}
