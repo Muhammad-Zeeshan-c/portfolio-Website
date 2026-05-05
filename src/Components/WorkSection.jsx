@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import AstraImage from '../assets/Astra.png';
-import CryptoImage from '../assets/crypto.JPG';
-import PixelsImage from '../assets/pixels.JPG';
+import CryptoImage from '../assets/crypto_new.JPG';
+import PixelsImage from '../assets/pixels_new.JPG';
 import NetflixImage from '../assets/netflix.JPG';
 import PortfolioImage from '../assets/portfolio.JPG';
 import AmazonImage from '../assets/Amazon.JPG';
-import ConverterImage from '../assets/converter.JPG';
+import ConverterImage from '../assets/converter_new.JPG';
 import JohnyJugnuImage from '../assets/JohnyJugnuImg.JPG';
 import AlBadrImage from '../assets/AlbadrImg.JPG';
 
@@ -63,7 +63,7 @@ const defaultProjects = [
     description: 'A responsive weather powered by open weather api to monitor real time weather conditions.',
     image: AstraImage,
     gitUrl: 'https://github.com/Muhammad-Zeeshan-c/AccuWeather-App.git',
-    demoUrl: '#',
+    demoUrl: 'accu-weather-app-x',
     tags: ['JavaScript', 'Open weather Api'],
     status: 'complete'
   },

@@ -82,7 +82,7 @@ export default function TypeWriter() {
             View My Work <FaChevronRight className="group-hover:translate-x-1 transition-transform" />
           </button>
         </a>
-        <a href="/public/assets/cv.pdf" download="cv.pdf">
+        <a href="/public/assets/cv_new.pdf" download="cv.pdf">
           <button className='px-8 py-4 border border-white/20 text-white text-[10px] font-black uppercase tracking-widest rounded-sm bg-white/5 backdrop-blur-md hover:bg-white hover:text-black hover:border-white transition-all transform hover:-translate-y-1 cursor-pointer'>
             My Resume
           </button>
