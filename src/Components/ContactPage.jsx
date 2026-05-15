@@ -2,10 +2,11 @@ import StarDust from './StarDust'
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { FaEnvelope, FaMapMarkerAlt, FaWhatsapp, FaPaperPlane } from 'react-icons/fa';
+
 const serviceID = import.meta.env.VITE_SERVICE_ID;
 const apikey = import.meta.env.VITE_API_KEY;
 const templatekey = import.meta.env.VITE_TEMPLATE_ID;
-
 
 export default function ContactPage() {
     const [formData, setFormData] = useState({
@@ -15,7 +16,7 @@ export default function ContactPage() {
         Message: ''
     });
 
-    const [errors, setErrors] = useState('');
+    const [errors, setErrors] = useState({});
     const [status, setStatus] = useState('');
 
     const handleChange = (e) => {
@@ -51,12 +52,9 @@ export default function ContactPage() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!validateForm()) {
-            return;
-        }
+        if (!validateForm()) return;
 
         setStatus('1');
-
         try {
             await emailjs.send(serviceID, templatekey, {
                 ...formData,
@@ -66,163 +64,169 @@ export default function ContactPage() {
                 Message: formData.Message
             }, apikey);
             setStatus('2');
-
-            setFormData({
-                name: '',
-                email: '',
-                subject: '',
-                Message: ''
-            });
+            setFormData({ name: '', email: '', subject: '', Message: '' });
             setErrors({});
-        }
-        catch (error) {
+        } catch (error) {
             console.error('Error sending email:', error);
             setStatus('3');
         }
     }
 
     return (
-        <div className="relative w-full min-h-[750px] bg-black overflow-hidden px-6 md:px-10 py-20"
-            id='contact'>
-
-            <div className='w-full h-full absolute inset-0 z-0'>
+        <section id='contact' className="relative w-full min-h-screen bg-black overflow-hidden py-24 flex items-center">
+            {/* Background Decor */}
+            <div className='absolute inset-0 z-0 opacity-30'>
                 <StarDust />
             </div>
+            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 blur-[150px] rounded-full pointer-events-none'></div>
 
-            {/* Contact page main container */}
-            <motion.div className="relative z-10 w-full mx-auto max-w-6xl flex flex-col"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-            >
-                <div className="text-center mb-12">
-                    <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary via-primary to-blue-500 mb-4">Get in Touch</h2>
-                    <p className="text-lg text-white/70">Got an idea ? Let's work together</p>
-                </div>
+            <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10 w-full">
+                <motion.div 
+                    className="text-center mb-16"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                >
+                    <h2 className='text-primary font-bold text-lg tracking-widest uppercase mb-2'>Contact</h2>
+                    <h1 className='text-4xl md:text-5xl font-black text-white'>Let's Create Something <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400'>Extraordinary</span></h1>
+                    <div className="w-20 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
+                </motion.div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-stretch">
+                    {/* Contact Form */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                        className='glass p-8 md:p-10 rounded-3xl'
+                    >
+                        <form className='flex flex-col gap-6' onSubmit={handleSubmit}>
+                            <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+                                <div className='flex flex-col gap-2'>
+                                    <label className='text-xs font-bold uppercase tracking-widest text-white/40 ml-1'>Name</label>
+                                    <input
+                                        name="name"
+                                        type="text"
+                                        placeholder="John Doe"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        className={`w-full bg-white/5 border ${errors.name ? 'border-red-500' : 'border-white/10'} rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all`}
+                                    />
+                                    {errors.name && <span className='text-[10px] text-red-500 font-bold ml-1'>{errors.name}</span>}
+                                </div>
+                                <div className='flex flex-col gap-2'>
+                                    <label className='text-xs font-bold uppercase tracking-widest text-white/40 ml-1'>Email</label>
+                                    <input
+                                        name="email"
+                                        type="email"
+                                        placeholder="john@example.com"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className={`w-full bg-white/5 border ${errors.email ? 'border-red-500' : 'border-white/10'} rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all`}
+                                    />
+                                    {errors.email && <span className='text-[10px] text-red-500 font-bold ml-1'>{errors.email}</span>}
+                                </div>
+                            </div>
 
-                    {/* Left: Enhanced Contact Form */}
-                    <form className='w-full flex flex-col items-center justify-between border border-gray-500/30 bg-black/40 backdrop-blur-md rounded-2xl p-4 shadow-2xl'>
-                        <div className='w-full flex flex-col text-sm text-white/90 mb-6'>
-                            <label htmlFor="name" className='mb-2 font-medium'>Name <span className='text-red-500'>*</span></label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                placeholder='John Doe'
-                                value={formData.name}
-                                onChange={handleChange}
-                                className={`w-full h-12 px-4 outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-gray-800/50 border rounded-lg transition-all
-                                ${errors.name ? "border-red-500 focus:ring-red-500" : "border-gray-600"}`}
-                            />
-                            {errors.name && <span className='text-red-500 text-xs mt-1'>{errors.name}</span>}
-                        </div>
+                            <div className='flex flex-col gap-2'>
+                                <label className='text-xs font-bold uppercase tracking-widest text-white/40 ml-1'>Subject</label>
+                                <input
+                                    name="subject"
+                                    type="text"
+                                    placeholder="Project Inquiry"
+                                    value={formData.subject}
+                                    onChange={handleChange}
+                                    className={`w-full bg-white/5 border ${errors.subject ? 'border-red-500' : 'border-white/10'} rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all`}
+                                />
+                                {errors.subject && <span className='text-[10px] text-red-500 font-bold ml-1'>{errors.subject}</span>}
+                            </div>
 
-                        <div className='w-full flex flex-col text-sm text-white/90 mb-6'>
-                            <label htmlFor="email" className='mb-2 font-medium'>Email <span className='text-red-500'>*</span></label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder='john@example.com'
-                                value={formData.email}
-                                onChange={handleChange}
-                                className={`w-full h-12 px-4 outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-gray-800/50 border rounded-lg transition-all
-                                ${errors.email ? "border-red-500 focus:ring-red-500" : "border-gray-600"}`}
-                            />
-                            {errors.email && <span className='text-red-500 text-xs mt-1'>{errors.email}</span>}
-                        </div>
+                            <div className='flex flex-col gap-2'>
+                                <label className='text-xs font-bold uppercase tracking-widest text-white/40 ml-1'>Message</label>
+                                <textarea
+                                    name="Message"
+                                    rows="5"
+                                    placeholder="Tell me about your vision..."
+                                    value={formData.Message}
+                                    onChange={handleChange}
+                                    className={`w-full bg-white/5 border ${errors.Message ? 'border-red-500' : 'border-white/10'} rounded-2xl px-6 py-4 text-white focus:outline-none focus:border-primary/50 transition-all resize-none`}
+                                />
+                                {errors.Message && <span className='text-[10px] text-red-500 font-bold ml-1'>{errors.Message}</span>}
+                            </div>
 
-                        <div className='w-full flex flex-col text-sm text-white/90 mb-6'>
-                            <label htmlFor="subject" className='mb-2 font-medium'>Subject <span className='text-red-500'>*</span></label>
-                            <input
-                                type="text"
-                                id="subject"
-                                name="subject"
-                                placeholder='How can I help you?'
-                                value={formData.subject}
-                                onChange={handleChange}
-                                className={`w-full h-12 px-4 outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-gray-800/50 border rounded-lg transition-all
-                                ${errors.subject ? "border-red-500 focus:ring-red-500" : "border-gray-600"}`}
-                            />
-                            {errors.subject && <span className='text-red-500 text-xs mt-1'>{errors.subject}</span>}
-                        </div>
+                            <div className='mt-2'>
+                                <button
+                                    type="submit"
+                                    disabled={status === '1'}
+                                    className='w-full md:w-auto px-10 py-4 bg-primary text-black font-black uppercase tracking-widest text-xs rounded-2xl hover:bg-white transition-all duration-300 flex items-center justify-center gap-3 shadow-lg shadow-primary/20'
+                                >
+                                    {status === '1' ? 'Sending...' : 'Send Message'}
+                                    <FaPaperPlane className='text-[10px]' />
+                                </button>
+                                {status === '2' && <p className='mt-4 text-green-400 text-xs font-bold'>Message sent successfully!</p>}
+                                {status === '3' && <p className='mt-4 text-red-400 text-xs font-bold'>Failed to send. Please try again.</p>}
+                            </div>
+                        </form>
+                    </motion.div>
 
-                        <div className='w-full flex flex-col text-sm text-white/90 mb-6'>
-                            <label htmlFor="Message" className='mb-2 font-medium'>Message <span className='text-red-500'>*</span></label>
-                            <textarea
-                                id="Message"
-                                name="Message"
-                                placeholder='Write your message here...'
-                                value={formData.Message}
-                                onChange={handleChange}
-                                className={`w-full h-32 p-4 outline-none focus:ring-2 focus:ring-primary focus:border-transparent bg-gray-800/50 border rounded-lg resize-none transition-all
-                                ${errors.Message ? "border-red-500 focus:ring-red-500" : "border-gray-600"}`}
-                            ></textarea>
-                            {errors.Message && <span className='text-red-500 text-xs mt-1'>{errors.Message}</span>}
-                        </div>
-
-                        <div className='w-full flex justify-start mb-4'>
-                            {status === '1' && <span className='text-primary text-sm font-medium'>Sending...</span>}
-                            {status === '2' && <span className='text-green-400 text-sm font-medium'>Message sent successfully!</span>}
-                            {status === '3' && <span className='text-red-400 text-sm font-medium'>Failed to send message. Please try again later.</span>}
-                        </div>
-
-                        <button
-                            type="submit"
-                            onClick={handleSubmit}
-                            className='w-full h-12 bg-primary text-black font-bold rounded-lg hover:bg-white transition-colors shadow-[0_0_15px_rgba(8,199,164,0.3)]'
-                        >
-                            Send Message
-                        </button>
-                    </form>
-
-                    {/* Right: Direct Contact Info Box */}
-                    <div className="w-full flex flex-col gap-8 bg-black/40 backdrop-blur-md border border-gray-500/30 rounded-2xl p-4 shadow-2xl h-full justify-center">
-                        <div>
-                            <h3 className="text-2xl font-bold text-white mb-6 border-b border-gray-700 pb-2">Direct Contact</h3>
-
-                            <div className="flex flex-col gap-6">
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-gray-800/80 text-primary rounded-lg border border-gray-700 shrink-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2" /><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" /></svg>
+                    {/* Contact Info */}
+                    <motion.div 
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className='flex flex-col gap-6'
+                    >
+                        <div className='glass p-8 rounded-3xl flex-grow'>
+                            <h3 className='text-xl font-bold text-white mb-8'>Direct Contact</h3>
+                            <div className='flex flex-col gap-8'>
+                                <div className='flex items-start gap-3 sm:gap-4 group min-w-0'>
+                                    <div className='w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-300'>
+                                        <FaEnvelope className="text-sm sm:text-base" />
                                     </div>
-                                    <div className="flex flex-col truncate">
-                                        <span className="text-sm text-white/50 font-semibold uppercase tracking-wider mb-1">Email Details</span>
-                                        <a href="mailto:m.zeeshanKhalid12@gmail.com" className="text-white hover:text-primary transition-colors">m.zeeshankhalid12@gmail.com</a>
+                                    <div className="min-w-0 overflow-hidden">
+                                        <p className='text-[10px] sm:text-xs font-bold text-white/30 uppercase tracking-widest mb-1'>Email Me</p>
+                                        <a href="mailto:m.zeeshankhalid12@gmail.com" className='text-sm sm:text-base text-white hover:text-primary transition-colors font-medium break-all'>
+                                            m.zeeshankhalid12@gmail.com
+                                        </a>
                                     </div>
                                 </div>
-
-                                <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-gray-800/80 text-primary rounded-lg border border-gray-700 shrink-0">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+                                <div className='flex items-start gap-3 sm:gap-4 group min-w-0'>
+                                    <div className='w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-primary/10 flex items-center justify-center text-primary border border-primary/20 group-hover:bg-primary group-hover:text-black transition-all duration-300'>
+                                        <FaMapMarkerAlt className="text-sm sm:text-base" />
                                     </div>
-                                    <div className="flex flex-col">
-                                        <span className="text-sm text-white/50 font-semibold uppercase tracking-wider mb-1">Location</span>
-                                        <span className="text-white leading-relaxed">Lahore, Pakistan</span>
+                                    <div className="min-w-0">
+                                        <p className='text-[10px] sm:text-xs font-bold text-white/30 uppercase tracking-widest mb-1'>Location</p>
+                                        <p className='text-sm sm:text-base text-white font-medium'>Lahore, Pakistan</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="mt-4 pt-6 border-t border-gray-700">
-                            <p className="text-sm text-white/60 mb-4">Need a quick response? Drop a message directly via WhatsApp.</p>
-                            <a
-                                href="https://wa.me/+9212345678"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="w-full inline-flex items-center justify-center gap-3 px-6 py-4 bg-[#25D366] text-white font-bold rounded-xl transition-all hover:bg-[#1ebe57] hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(37,211,102,0.2)]"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                                Message on WhatsApp
-                            </a>
-                        </div>
-                    </div>
-
+                        <a 
+                            href="https://wa.me/+923000000000" // Replace with actual number
+                            target="_blank"
+                            rel="noreferrer"
+                            className='glass p-5 sm:p-8 rounded-3xl group flex items-center justify-between hover:bg-green-500/10 hover:border-green-500/30 transition-all duration-300'
+                        >
+                            <div className='flex items-center gap-3 sm:gap-4'>
+                                <div className='w-10 h-10 sm:w-12 sm:h-12 shrink-0 rounded-xl bg-[#25D366]/10 flex items-center justify-center text-[#25D366] border border-[#25D366]/20 group-hover:bg-[#25D366] group-hover:text-white transition-all duration-300'>
+                                    <FaWhatsapp className='text-lg sm:text-xl' />
+                                </div>
+                                <div>
+                                    <p className='text-[10px] sm:text-xs font-bold text-white/30 uppercase tracking-widest mb-1'>WhatsApp</p>
+                                    <p className='text-sm sm:text-base text-white font-bold'>Quick Chat</p>
+                                </div>
+                            </div>
+                            <div className='w-10 h-10 rounded-full border border-white/5 flex items-center justify-center text-white/20 group-hover:text-white group-hover:translate-x-1 transition-all'>
+                                →
+                            </div>
+                        </a>
+                    </motion.div>
                 </div>
-            </motion.div>
-        </div>
+            </div>
+        </section>
     )
 }
+

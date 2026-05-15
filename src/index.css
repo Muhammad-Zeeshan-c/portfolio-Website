@@ -1,55 +1,73 @@
 @import 'tailwindcss';
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-
 @theme {
   --color-primary: #00b4d8;
+  --color-primary-dark: #0077b6;
+  --color-primary-light: #90e0ef;
+  
   --breakpoint-xs: 480px;
 
+  /* Glassmorphism Tokens */
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-blur: blur(12px);
+
   @keyframes gradient-x {
-
-    0%,
-    100% {
-      background-position: 0% 50%;
-    }
-
-    50% {
-      background-position: 100% 50%;
-    }
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
   }
 
   @keyframes float {
-
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(-20px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
   }
 
   @keyframes spin-slow {
-    from {
-      transform: rotate(0deg);
-    }
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
 
-    to {
-      transform: rotate(360deg);
-    }
+  @keyframes pulse-soft {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.05); }
+  }
+
+  @keyframes reveal {
+    from { clip-path: inset(0 100% 0 0); }
+    to { clip-path: inset(0 0 0 0); }
   }
 
   --animate-gradient-x: gradient-x 15s ease infinite;
   --animate-float: float 6s ease-in-out infinite;
   --animate-spin-slow: spin-slow 12s linear infinite;
+  --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
+  --animate-reveal: reveal 1s cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 html {
   scroll-behavior: smooth;
+  @apply bg-black text-white;
 }
+
+body {
+  @apply antialiased selection:bg-primary/30 selection:text-white;
+}
+
+/* Custom Utilities for Glassmorphism */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-hover {
+  @apply transition-all duration-300;
+}
+
+.glass-hover:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(0, 180, 216, 0.4);
+  box-shadow: 0 0 30px rgba(0, 180, 216, 0.2);
+  transform: translateY(-8px);
+}
+

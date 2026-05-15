@@ -1,85 +1,108 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import profilePic from '../assets/Profile pic.png'
+import { FaRocket, FaLightbulb, FaGraduationCap } from 'react-icons/fa'
 
 function About() {
+    const stats = [
+        { icon: <FaRocket className="text-primary" />, label: 'Projects', value: '10+', desc: 'Modern digital solutions' },
+        { icon: <FaLightbulb className="text-primary" />, label: 'Focus', value: 'UI/UX', desc: 'Performance-driven design' },
+        { icon: <FaGraduationCap className="text-primary" />, label: 'Learning', value: 'Backend', desc: 'Scalable architectures' }
+    ];
+
     return (
-        <section className='w-full h-[1000px]  bg-black relative overflow-hidden pt-4'
-            id='about'
-        >
-            <motion.div className='flex flex-col justify-evenly items-center w-full h-full overflow-hidden'
-                initial={{ opacity: 0, x: -200 }} // Starts 100px to the left
-                viewport={{ once: true }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                    duration: 1.5,
-                    ease: "easeOut",
-                    type: "spring",
-                    stiffness: 15
-                }}>
-                {/* Glow effect */}
-                <div className='absolute  -left-1/4  w-1/3 h-1/3 blur-3xl opacity-50 z-0'>
-                    <div className='bg-gradient-to-r from-primary to to-primary animate-pulse blur-3xl w-full h-full'></div>
-                </div>
+        <section className='w-full min-h-screen bg-black relative overflow-hidden py-20 flex items-center' id='about'>
+            {/* Background Glows */}
+            <div className='absolute top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full animate-pulse-soft pointer-events-none'></div>
+            <div className='absolute bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-primary/5 blur-[120px] rounded-full animate-pulse-soft pointer-events-none' style={{ animationDelay: '2s' }}></div>
 
-                {/* Glow effect */}
-                <div className='absolute -right-1/4 -bottom-0 w-1/3 h-1/3 opacity-50 z-0'>
+            <div className='max-w-6xl mx-auto px-6 md:px-10 relative z-10 w-full'>
+                <div className='grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-12 lg:gap-20 items-center'>
 
-                    <div className='w-full h-full bg-gradient-to-r from-primary to-primary animate-pulse blur-3xl'>
-                    </div>
-                </div>
+                    {/* Image Column */}
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className='relative flex justify-center'
+                    >
+                        <div className='relative w-64 h-64 md:w-80 md:h-80'>
+                            {/* Decorative Rings */}
+                            <div className='absolute inset-0 border-2 border-primary/20 rounded-2xl animate-spin-slow'></div>
+                            <div className='absolute inset-2 border border-dashed border-primary/10 rounded-2xl animate-spin-slow [animation-direction:reverse]'></div>
 
-                {/* Elements of flex box */}
-                <div className='flex flex-col items-center relative max-w-6xl w-full mx-auto px-6 md:px-10   gap-x-10 sm:items-start lg:flex-row'>
-
-                    {/* Pic */}
-                    <div className='min-w-48 h-52 border-2 border-white/50 rounded-md'><img src={profilePic} className='w-full h-full object-cover rounded-md' /></div>
-
-                    {/* Info div */}
-                    <div className='flex flex-col items-center sm:items-start gap-2'>
-                        <h1 className='text-xl text-primary font-bold xs:text-2xl sm:text-3xl'>Muhammad Zeeshan Khalid</h1>
-                        <h1 className='text-base text-white font-bold xs:text-xl'>Web Developer</h1>
-                        <span className=' text-white/50 text-sm text-center xs:text-base sm:text-start md:text-xl'>I develop high performance web applications with a strong emphasis on clean architecture and intuitive user experience. My core tech stack consists of React, JavaScript, Tailwind CSS, and Next.js. With a background in C++ and Python, I fill the gap between optimized application logic and responsive interfaces.</span>
-
-                        {/* Container containing info  */}
-                        <div className='mt-5'>
-                            <div className='flex flex-col gap-5'>
-                                <div className='flex flex-row justify-center gap-5 flex-wrap'>
-
-                                    <div className='flex flex-col w-22 h-15 rounded-lg bg-white/5 border-[1px] border-white/10 justify-center items-center text-center text-base'>
-                                        <h4 className='text-gray-400'>Projects</h4>
-                                        <h4 className='text-white font-medium'>10+</h4>
-                                    </div>
-                                    <div className='flex flex-col w-40 h-15 rounded-lg bg-white/5 border-[1px] border-white/10 justify-center items-center text-center text-base'>
-                                        <h4 className='text-gray-400'>Focus</h4>
-                                        <h4 className='text-white font-medium'>Perfomance & UI/UX</h4>
-                                    </div>
-
-                                    <div className='flex flex-col w-44 h-15 rounded-lg bg-white/5 border-[1px] border-white/10 justify-center items-center text-center text-base'>
-                                        <h4 className='text-gray-400'>Learning</h4>
-                                        <h4 className='text-white font-medium'>Backend Development</h4>
-                                    </div>
-                                </div>
-
-                                <div className=' flex flex-col gap-5 xs:flex-row '>
-                                    <a href="#projects"  ><button className='w-full  h-12 cursor-pointer bg-white flex justify-center items-center rounded-lg font-medium xs:w-48 xs:h-14'>View Projects</button></a>
-                                    <a href="#contact" ><button className='w-full h-12 cursor-pointer bg-white/5 flex justify-center items-center rounded-lg font-medium text-white  xs:w-48 xs:h-14'>Get in Touch</button></a>
-                                </div>
+                            {/* Main Image Container */}
+                            <div className='absolute inset-4 rounded-2xl overflow-hidden glass border-white/10 group'>
+                                <img
+                                    src={profilePic}
+                                    alt="Muhammad Zeeshan Khalid"
+                                    className='w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-110'
+                                />
+                                <div className='absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300'></div>
                             </div>
+
+                            {/* Floating Accent */}
+                            <div className='absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 blur-2xl rounded-full animate-pulse'></div>
                         </div>
+                    </motion.div>
+
+                    {/* Content Column */}
+                    <div className='flex flex-col gap-8'>
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                        >
+                            <h2 className='text-primary font-bold text-lg tracking-wider uppercase mb-2'>About Me</h2>
+                            <h1 className='text-4xl md:text-5xl font-black text-white mb-6 leading-tight'>
+                                Crafting Digital <span className='text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400'>Masterpieces</span> with Code.
+                            </h1>
+                            <p className='text-white/70 text-lg leading-relaxed max-w-2xl'>
+                                I am <span className='text-white font-bold'>Muhammad Zeeshan Khalid</span>, a Computer Science undergraduate and Web Developer. I specialize in building fast, scalable web applications that bridge the gap between complex logic and beautiful interfaces.
+                            </p>
+                        </motion.div>
+
+                        {/* Stats Grid */}
+                        <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>
+                            {stats.map((stat, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
+                                    className='glass p-4 rounded-xl flex flex-col gap-2 glass-hover cursor-default group'
+                                >
+                                    <div className='text-2xl group-hover:scale-110 transition-transform duration-300'>{stat.icon}</div>
+                                    <div>
+                                        <h4 className='text-white font-bold text-xl'>{stat.value}</h4>
+                                        <p className='text-white/40 text-xs uppercase tracking-widest'>{stat.label}</p>
+                                    </div>
+                                    <p className='text-white/50 text-[10px] leading-tight'>{stat.desc}</p>
+                                </motion.div>
+                            ))}
+                        </div>
+
+                        {/* Actions */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            whileInView={{ opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.8, delay: 0.6 }}
+                            className='flex flex-wrap gap-4 mt-4'
+                        >
+                            <a href="#projects" className='px-8 py-4 bg-primary text-black font-bold rounded-xl hover:bg-white transition-colors duration-300 shadow-[0_10px_20px_rgba(0,180,216,0.25)]'>
+                                Explore Projects
+                            </a>
+                            <a href="#contact" className='px-8 py-4 glass text-white font-bold rounded-xl hover:bg-white/10 transition-colors duration-300'>
+                                Get In Touch
+                            </a>
+                        </motion.div>
                     </div>
-
                 </div>
-                {/* About-me */}
-                <div className='max-w-6xl w-full mx-auto px-6 md:px-10 flex flex-col gap-4 '>
-
-                    <h3 className='font-bold text-white text-2xl '>About me</h3>
-
-                    <p className='text-sm text-white/70 font-thin text-center sm:text-start xs:text-base md:text-xl'>I’m Muhammad Zeeshan, a Computer Science undergraduate and Web Developer passionate about building fast, scalable web applications using modern technologies like React, Next.js, JavaScript, and Tailwind CSS.
-                        <br />
-                        I enjoy turning ideas into clean, responsive, and user friendly digital experiences that solve real-world problems</p>
-                </div>
-            </motion.div>
+            </div>
         </section>
     )
 }
