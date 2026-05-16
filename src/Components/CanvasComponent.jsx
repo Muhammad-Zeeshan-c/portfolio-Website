@@ -1,8 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, memo } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
 
-const ParticlesBackground = () => {
+const ParticlesBackground = memo(() => {
   const [init, setInit] = useState(false);
 
 
@@ -22,7 +22,7 @@ const ParticlesBackground = () => {
     background: {
       color: { value: "transparent" },
     },
-    fpsLimit: 120,
+    fpsLimit: 60,
     interactivity: {
       events: {
         onHover: {
@@ -50,8 +50,8 @@ const ParticlesBackground = () => {
         outModes: { default: "out" },
       },
       number: {
-        value: 200,
-        density: { enable: true, area: 800 },
+        value: 100,
+        density: { enable: true, area: 1000 },
       },
       opacity: { value: 0.5 },
       shape: { type: "circle" },
@@ -65,6 +65,6 @@ const ParticlesBackground = () => {
   }
 
   return null;
-};
+});
 
 export default ParticlesBackground;

@@ -1,14 +1,16 @@
-import { useState } from "react"
+import React, { useState, Suspense, lazy } from "react"
 import CursorComponent from "./Components/CursorComponent.jsx"
 import Home from "./Components/Home.jsx"
 import Navbar from './Components/Navbar.jsx'
 import GreetingsAnimation from './Components/GreetingsAnimation.jsx'
-import About from './Components/About.jsx'
-import Education from './Components/Education.jsx'
-import Skills from "./Components/SkillsAndTools.jsx"
-import WorkSection from "./Components/WorkSection.jsx"
-import ContactPage from "./Components/ContactPage.jsx"
-import Footer from './Components/Footer.jsx'
+
+// Lazy load components below the fold
+const About = lazy(() => import('./Components/About.jsx'));
+const Education = lazy(() => import('./Components/Education.jsx'));
+const Skills = lazy(() => import("./Components/SkillsAndTools.jsx"));
+const WorkSection = lazy(() => import("./Components/WorkSection.jsx"));
+const ContactPage = lazy(() => import("./Components/ContactPage.jsx"));
+const Footer = lazy(() => import('./Components/Footer.jsx'));
 
 function App() {
   const [complete, setcomplete] = useState(false);
@@ -23,7 +25,7 @@ function App() {
 
       {
         complete && (
-          <>
+          <Suspense fallback={<div className="min-h-screen bg-black" />}>
             <Navbar />
             <Home />
             <CursorComponent />
@@ -33,7 +35,7 @@ function App() {
             <WorkSection />
             <ContactPage />
             <Footer />
-          </>
+          </Suspense>
         )
       }
     </div>

@@ -27,7 +27,7 @@ function Navbar() {
         <>
             <nav className={`fixed top-0 left-0 w-full z-[99999] transition-all duration-300 px-6 md:px-10 h-20 flex items-center justify-between ${scrolled ? 'bg-black/60 backdrop-blur-xl border-b border-white/5 h-16' : 'bg-transparent'}`}>
                 {/* Logo Section */}
-                <div className='flex items-center gap-3 cursor-pointer group'>
+                <div className='flex items-center gap-2 cursor-pointer group'>
                     <img src={Logo} alt="Logo" className='h-8 w-auto group-hover:scale-110 transition-transform duration-300' />
                     <span className="font-black text-2xl tracking-tighter text-white hidden sm:block">
                         ZEESHAN<span className="text-primary">.</span>
@@ -35,7 +35,7 @@ function Navbar() {
                 </div>
 
                 {/* Desktop Links */}
-                <div className='hidden md:flex items-center gap-8'>
+                <div className='hidden lg:flex items-center gap-8'>
                     {navLinks.map((link) => (
                         <a 
                             key={link.name} 
@@ -51,13 +51,13 @@ function Navbar() {
                 <div className='flex items-center gap-4'>
                     <a 
                         href="#contact" 
-                        className='hidden sm:block px-6 py-2.5 bg-primary text-black text-xs font-black uppercase tracking-widest rounded-full hover:bg-white transition-all duration-300 shadow-lg shadow-primary/10'
+                        className='px-4 sm:px-6 py-2 sm:py-2.5 bg-primary text-black text-[10px] sm:text-xs font-black uppercase tracking-widest rounded-full hover:bg-white transition-all duration-300 shadow-lg shadow-primary/10 whitespace-nowrap'
                     >
                         Reach out
                     </a>
                     
                     <button 
-                        className='p-2 hover:bg-white/5 rounded-lg transition-colors'
+                        className='p-2 hover:bg-white/5 rounded-lg transition-colors lg:hidden'
                         onClick={() => setMenuVisible(true)}
                     >
                         <img src={HamburgerMenuIcon} alt="Menu" className='h-6 w-6' />

@@ -115,7 +115,7 @@ export default function WorkSection({ projects = defaultProjects }) {
       <div className='absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[150px] rounded-full pointer-events-none'></div>
 
       <div className="max-w-6xl mx-auto px-6 md:px-10 relative z-10">
-        <motion.div 
+        <motion.div
           className='flex flex-col items-center mb-16 text-center'
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -144,10 +144,12 @@ export default function WorkSection({ projects = defaultProjects }) {
                   <img
                     src={proj.image}
                     alt={proj.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
-                  
+
                   {proj.status === 'pending' && (
                     <div className="absolute top-4 right-4 px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-[10px] font-bold uppercase tracking-widest rounded-full">
                       Coming Soon
@@ -215,4 +217,4 @@ export default function WorkSection({ projects = defaultProjects }) {
       </div>
     </section>
   );
-}
+}

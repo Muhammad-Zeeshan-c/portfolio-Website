@@ -42,15 +42,31 @@
   --animate-spin-slow: spin-slow 12s linear infinite;
   --animate-pulse-soft: pulse-soft 4s ease-in-out infinite;
   --animate-reveal: reveal 1s cubic-bezier(0.77, 0, 0.175, 1);
+  
+  /* Optimize GPU usage for animations */
+  --will-change-transform: transform;
+  --will-change-opacity: opacity;
 }
 
 html {
   scroll-behavior: smooth;
-  @apply bg-black text-white;
+  @apply bg-black text-white antialiased;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  @apply antialiased selection:bg-primary/30 selection:text-white;
+  @apply selection:bg-primary/30 selection:text-white overflow-x-hidden;
+}
+
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+#home {
+  content-visibility: visible;
 }
 
 /* Custom Utilities for Glassmorphism */
@@ -58,6 +74,8 @@ body {
   background: var(--glass-bg);
   backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .glass-hover {

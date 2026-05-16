@@ -5,19 +5,25 @@ import { motion } from 'framer-motion'
 
 function Home() {
     return (
-        <section className='w-full min-h-screen relative overflow-hidden bg-black flex items-center pt-24 pb-12 sm:pt-32 sm:pb-20' id="home">
+        <section className='w-full min-h-0 lg:min-h-screen relative overflow-hidden bg-black flex items-center pt-24 pb-16 sm:pt-32 sm:pb-20' id="home">
             
             {/* Background Glows */}
             <div className='absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-primary/20 blur-[120px] rounded-full animate-pulse-soft pointer-events-none'></div>
             <div className='absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-primary/10 blur-[120px] rounded-full animate-pulse-soft pointer-events-none' style={{ animationDelay: '2s' }}></div>
+            <div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[150px] rounded-full pointer-events-none lg:hidden'></div>
 
             {/* Particles Layer */}
             <div className="absolute inset-0 z-0 opacity-40">
                 <ParticlesBackground />
             </div>
 
+            {/* Background Watermark - Mobile Only */}
+            <div className='absolute inset-0 flex items-center justify-center lg:hidden pointer-events-none opacity-[0.07] select-none z-0'>
+                <span className='text-[100vw] font-black text-white leading-none'>Z</span>
+            </div>
+
             <div className='max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10'>
-                <div className='grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-8 lg:gap-12 items-center'>
+                <div className='grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-10 lg:gap-12 items-center'>
                     
                     {/* Left Content */}
                     <motion.div 
@@ -26,9 +32,9 @@ function Home() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                         className='flex flex-col gap-4 sm:gap-6 text-center lg:text-left'
                     >
-                        <div className="inline-flex items-center gap-2 px-3 py-1.5 glass rounded-full self-center lg:self-start mb-2 sm:mb-4">
+                        <div className="inline-flex items-center gap-2 px-4 py-2 glass rounded-full self-center lg:self-start mb-4 sm:mb-6">
                             <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                            <span className="text-[9px] sm:text-[10px] font-bold uppercase tracking-[0.2em] text-white/80">Open for opportunities</span>
+                            <span className="text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.2em] text-white/90">Open for opportunities</span>
                         </div>
                         
                         <div className="w-full">
@@ -52,6 +58,9 @@ function Home() {
                             <img 
                                 src={AvatorIcon} 
                                 alt="Avatar" 
+                                loading="eager"
+                                fetchPriority="high"
+                                decoding="async"
                                 className="object-contain w-[70%] xl:w-[80%] h-auto drop-shadow-[0_0_80px_rgba(0,180,216,0.25)]" 
                             />
                         </motion.div>
@@ -64,7 +73,7 @@ function Home() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.5, duration: 1, repeat: Infinity, repeatType: "reverse" }}
-                className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 sm:gap-3 opacity-30"
+                className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 sm:gap-3 opacity-30"
             >
                 <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.4em] font-bold text-white">Scroll</span>
                 <div className="w-[1px] h-8 sm:h-12 bg-gradient-to-b from-primary to-transparent"></div>
